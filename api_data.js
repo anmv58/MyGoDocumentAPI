@@ -2462,13 +2462,25 @@ define({ "api": [
             "optional": false,
             "field": "token",
             "description": "<p>eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDUzMDgiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg5MzA4LCJ1c2VySWQiOiI2MDc4MjMifQ.E-KqCDN21CQpzl1mYziWqJ3XC57uHAhFU2FV-aSsgk4</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token_register",
+            "description": "<p>Token server trả về khi tài khoản chưa tồn tại !</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Success-Response:",
+          "title": "Success-Response-Login:",
           "content": "{\n  \"status\": \"200\",\n  \"message\": \"OK\",\n  \"data\": {\n     \"token\": \"eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDUzMDgiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg5MzA4LCJ1c2VySWQiOiI2MDc4MjMifQ.E-KqCDN21CQpzl1mYziWqJ3XC57uHAhFU2FV-aSsgk4\",\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response-Register:",
+          "content": "{\n  \"status\": \"401\",\n  \"message\": \"ACCOUNT_NOT_EXIST\",\n  \"data\": {\n     \"token_register\": \"eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDUzMDgiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg5MzA4LCJ1c2VySWQiOiI2MDc4MjMifQ.E-KqCDN21CQpzl1mYziWqJ3XC57uHAhFU2FV-aSsgk4\",\n  }\n}",
           "type": "json"
         }
       ]
@@ -5896,8 +5908,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "fbToken",
-            "description": "<p>Token Facebook trả về</p>"
+            "field": "tokenVerify",
+            "description": "<p>Token server trả về khi call API đăng kí (đối với tài khoản chưa tồn tại)</p>"
           },
           {
             "group": "Parameter",
@@ -5961,6 +5973,13 @@ define({ "api": [
             "optional": false,
             "field": "carType",
             "description": "<p>Mã dịch vụ đăng kí (159 hoặc 156)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "appVersion",
+            "description": "<p>Phiên bản ứng dụng hiện tại</p>"
           }
         ]
       },
@@ -5988,13 +6007,20 @@ define({ "api": [
             "optional": false,
             "field": "message",
             "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Token",
+            "description": "<p>Token phiên làm việc của Tài khoản ;)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n      waiting for fun\n   }",
+          "content": "{\n       \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"token\": \"eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NjAyMzk2NTgiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTY1NDIzNjU4LCJ1c2VySWQiOjYwODU0M30.5qlWHnYcbAyeWb0201XBZrAe5nuf0UE5NbLDrxpu1no\"\n       }\n   }",
           "type": "json"
         }
       ]
