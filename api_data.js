@@ -5910,8 +5910,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "de0hi",
-            "description": "<p>ết bị dùng để push notify</p>"
+            "field": "deviceToken",
+            "description": "<p>Token thiết bị dùng để push notify</p>"
           },
           {
             "group": "Parameter",
