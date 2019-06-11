@@ -6029,6 +6029,172 @@ define({ "api": [
     "groupTitle": "Driver"
   },
   {
+    "type": "get",
+    "url": "/api/v1/getVehicleModel.php",
+    "title": "31. Lấy danh sách Mã phương tiện",
+    "name": "31__L_y_danh_s_ch_M__ph__ng_ti_n",
+    "group": "Driver",
+    "description": "<p>API này không cần truyền gì lên</p>",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Mã Id hãng xe/ phương tiện</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Hãng xe/ tên phương tiện</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "model",
+            "description": "<p>Danh sách các model thuộc hãng</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "makeId",
+            "description": "<p>Mã Id của hãng xe</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n       \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": [\n            {\n               \"id\": 129,\n               \"name\": \"Chevrolet\",\n               \"model\": [\n                   {\n                       \"id\": 1247,\n                       \"makeId\": 129,\n                       \"name\": \"AVEO\"\n                   },\n                   {\n                       \"id\": 1322,\n                       \"makeId\": 129,\n                       \"name\": \"Captiva\"\n                   },\n                   {\n                       \"id\": 1248,\n                       \"makeId\": 129,\n                       \"name\": \"CRUZE\"\n                   },\n                   {\n                       \"id\": 1280,\n                       \"makeId\": 129,\n                       \"name\": \"ORLANDO\"\n                   },\n                   {\n                       \"id\": 1246,\n                       \"makeId\": 129,\n                       \"name\": \"SPARK\"\n                   }\n               ]\n           }\n       }        \n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Driver"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/uploadFile.php",
+    "title": "32. Upload ảnh",
+    "name": "32__Upload__nh",
+    "group": "Driver",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>Chọn file gửi lên</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Driver hoặc Passenger</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "key",
+            "description": "<p>Mã bảo mật (hiện hardcode)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"file\": nhatkyvanganh.mp4\n    \"type\": Driver\n    \"key\": YmYhGBglbRsMH9EkbfKkebILBNM=\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Mã Id file</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Tên file</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Loại User</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imgType",
+            "description": "<p>loại file (img, video...)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n       \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"id\": 3,\n           \"name\": \"1560243471_50569.jpg\",\n           \"type\": \"Driver\",\n           \"imgType\": \"img\"\n       }\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Driver"
+  },
+  {
     "type": "post",
     "url": "/api/v1/driver/logout.php",
     "title": "Đăng xuất",
