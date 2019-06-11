@@ -5983,17 +5983,17 @@
           },
           {
             "group": "Parameter",
-            "type": "Json",
+            "type": "String",
             "optional": false,
             "field": "imageId",
-            "description": "<p>chuỗi json của ảnh. Định dạng: [{},{}] (xem example)</p>"
+            "description": "<p>Danh sách các Id ảnh</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"tokenVerify\": EMAWfqVlBdyEsGWpUIFoqH6ZCJZBRPqdCjmt8CUg4yJ06WAqpZCSjqkFZCw2EPOP85cmhlrVSenhsRiNLGfuhsdAMmxmvVaSBdj8iqS1CgMgZDZD\n    \"deviceType\": Android\n    \"deviceToken\": dyEsGWpUIFoqH6ZCJZBRPqdCjmt8CU\n    \"firstName\": An\n    \"LastName\": Mai \n    \"cityId\": 1\n    \"makeId\": 2\n    \"modelId\": 3\n    \"licencePlate\": 29P1 - 57048\n    \"carType\": 159\n    \"imageId\":{\n        \"id\": 4,\n           \"name\": \"wca1560246919.\",\n           \"type\": \"Driver\",\n           \"imgType\": \"img\"\n    }\n}",
+          "content": "{\n    \"tokenVerify\": EMAWfqVlBdyEsGWpUIFoqH6ZCJZBRPqdCjmt8CUg4yJ06WAqpZCSjqkFZCw2EPOP85cmhlrVSenhsRiNLGfuhsdAMmxmvVaSBdj8iqS1CgMgZDZD\n    \"deviceType\": Android\n    \"deviceToken\": dyEsGWpUIFoqH6ZCJZBRPqdCjmt8CU\n    \"firstName\": An\n    \"LastName\": Mai \n    \"cityId\": 1\n    \"makeId\": 2\n    \"modelId\": 3\n    \"licencePlate\": 29P1 - 57048\n    \"carType\": 159\n    \"imageId\": 1,2,3,4 \n}",
           "type": "json"
         }
       ]
