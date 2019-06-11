@@ -5980,13 +5980,20 @@
             "optional": false,
             "field": "appVersion",
             "description": "<p>Phiên bản ứng dụng hiện tại</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Json",
+            "optional": false,
+            "field": "imageId",
+            "description": "<p>chuỗi json của ảnh. Định dạng: [{},{}] (xem example)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"fbToken\": EMAWfqVlBdyEsGWpUIFoqH6ZCJZBRPqdCjmt8CUg4yJ06WAqpZCSjqkFZCw2EPOP85cmhlrVSenhsRiNLGfuhsdAMmxmvVaSBdj8iqS1CgMgZDZD\n    \"deviceType\": Android\n    \"deviceToken\": dyEsGWpUIFoqH6ZCJZBRPqdCjmt8CU\n    \"firstName\": An\n    \"LastName\": Mai \n    \"cityId\": 1\n    \"makeId\": 2\n    \"modelId\": 3\n    \"licencePlate\": 29P1 - 57048\n    \"carType\": 159\n}",
+          "content": "{\n    \"tokenVerify\": EMAWfqVlBdyEsGWpUIFoqH6ZCJZBRPqdCjmt8CUg4yJ06WAqpZCSjqkFZCw2EPOP85cmhlrVSenhsRiNLGfuhsdAMmxmvVaSBdj8iqS1CgMgZDZD\n    \"deviceType\": Android\n    \"deviceToken\": dyEsGWpUIFoqH6ZCJZBRPqdCjmt8CU\n    \"firstName\": An\n    \"LastName\": Mai \n    \"cityId\": 1\n    \"makeId\": 2\n    \"modelId\": 3\n    \"licencePlate\": 29P1 - 57048\n    \"carType\": 159\n    \"imageId\":{\n        \"id\": 4,\n           \"name\": \"wca1560246919.\",\n           \"type\": \"Driver\",\n           \"imgType\": \"img\"\n    }\n}",
           "type": "json"
         }
       ]
@@ -6125,13 +6132,20 @@
             "optional": false,
             "field": "key",
             "description": "<p>Mã bảo mật (hiện hardcode)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imgType",
+            "description": "<p>Kiểu giấy tờ trong ảnh ( passpost = CMT; sign = chữ ký,phù hiệu; img = ảnh thường)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{\n    \"file\": nhatkyvanganh.mp4\n    \"type\": Driver\n    \"key\": YmYhGBglbRsMH9EkbfKkebILBNM=\n}",
+          "content": "{\n    \"file\": nhatkyvanganh.mp4\n    \"type\": Driver\n    \"key\": YmYhGBglbRsMH9EkbfKkebILBNM=\n    \"imgType\": passport \n}",
           "type": "json"
         }
       ]
