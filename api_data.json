@@ -6179,7 +6179,7 @@
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>Tên file</p>"
+            "description": "<p>URL dẫn tới nơi lưu ảnh</p>"
           },
           {
             "group": "Success 200",
@@ -6200,7 +6200,7 @@
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n       \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"id\": 3,\n           \"name\": \"1560243471_50569.jpg\",\n           \"type\": \"Driver\",\n           \"imgType\": \"img\"\n       }\n   }",
+          "content": "{\n       \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"id\": 3,\n           \"name\": \"https://vtmove-apiv2.ddns.net/webimages/upload/Driver/2019_06_11/1560250232_94720.jpg\",\n           \"type\": \"Driver\",\n           \"imgType\": \"img\"\n       }\n   }",
           "type": "json"
         }
       ]
