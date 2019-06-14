@@ -2403,7 +2403,102 @@
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n    \"status\": 200,\n       \"message\": \"Đang tìm tài xế\",\n       \"data\": {\n           \"iRequestId\": 75125\n       }\n}",
+          "content": "{\n    \"status\": 200,\n     \"message\": \"Đang tìm tài xế\",\n     \"data\": {\n         \"iRequestId\": 75125\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/check_promotion.php",
+    "title": "17. Check mã Khuyến mại hợp lệ",
+    "name": "17__Check_m__Khuy_n_m_i_h_p_l_",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "promotion_code",
+            "description": "<p>Mã khuyến mại cần check</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{   \n    \"promotion_code\": VT10K\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{   \n      https://vtmove-apiv2.ddns.net//api/v1/customer/check_promotion.php?promotion_code=VT10K\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>thông báo trả về</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>null</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n     \"status\": 200,\n     \"message\": \"VALID_CODE\",\n     \"data\": null\n}",
+          "type": "json"
+        },
+        {
+          "title": "Failed-Example:",
+          "content": "{\n     \"status\": 400,\n     \"message\": \"CODE_IS_INVALID\",\n     \"data\": null\n}",
           "type": "json"
         }
       ]
