@@ -2507,6 +2507,16 @@
           "title": "Failed-Example:",
           "content": "{\n     \"status\": 400,\n     \"message\": \"CODE_IS_INVALID\",\n     \"data\": null\n}",
           "type": "json"
+        },
+        {
+          "title": "Failed-Example:",
+          "content": "{\n     \"status\": 400,\n     \"message\": \"SERVICE_IS_NOT_SUPPORTED\",\n     \"data\": null\n}",
+          "type": "json"
+        },
+        {
+          "title": "Failed-Example:",
+          "content": "{\n     \"status\": 400,\n     \"message\": \"CODE_IS_EMPTY\",\n     \"data\": null\n}",
+          "type": "json"
         }
       ]
     },
