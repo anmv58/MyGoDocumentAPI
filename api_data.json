@@ -530,18 +530,25 @@
             "optional": false,
             "field": "cod",
             "description": "<p>Số tiền COD</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "promotion_code",
+            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{\n    \"tripType\": Km\n    \"distance\": 6900\n    \"SelectedCar\": 152\n    \"totalPointDelivery\": 2\n    \"cod\": 1000000\n}",
+          "content": "{\n    \"tripType\": Km\n    \"distance\": 6900\n    \"SelectedCar\": 152\n    \"totalPointDelivery\": 2\n    \"cod\": 1000000\n    \"promotion_code\": VT10K  \n}",
           "type": "json"
         },
         {
           "title": "Request-Example:",
-          "content": "{\n    https://vtmove-apiv2.ddns.net/api/v1/customer/estimate_fare.php?tripType=Km&distance=10000&SelectedCar=152&totalPointDelivery=2&cod=100000 \n}",
+          "content": "{\n    https://vtmove-apiv2.ddns.net/api/v1/customer/estimate_fare.php?tripType=Km&distance=10000&SelectedCar=152&totalPointDelivery=2&cod=100000&promotion_code=VT10K \n}",
           "type": "json"
         }
       ]
@@ -575,7 +582,7 @@
             "type": "int",
             "optional": false,
             "field": "total_fare",
-            "description": "<p>Tổng cước phí</p>"
+            "description": "<p>Tổng cước phí chuyến đi (sau khuyến mãi)</p>"
           },
           {
             "group": "Success 200",
@@ -624,7 +631,7 @@
             "type": "int",
             "optional": false,
             "field": "discount_fare",
-            "description": "<p>Khuyến mại giảm giá (của KH)</p>"
+            "description": "<p>Giá trị của mã Khuyến Mại mà KH nhập</p>"
           },
           {
             "group": "Success 200",
@@ -638,14 +645,14 @@
             "type": "int",
             "optional": false,
             "field": "bonus_for_driver",
-            "description": "<p>Tiền thưởng cho Tài xế</p>"
+            "description": "<p>Tiền thưởng cho Tài xế (hiện = 15%)</p>"
           },
           {
             "group": "Success 200",
             "type": "int",
             "optional": false,
             "field": "raw_fare",
-            "description": "<p>Doanh thu của hệ thống (= total_fare - discount_fare)</p>"
+            "description": "<p>Giá cước trước khi áp dụng mã Khuyến mãi (= total_fare + discount_fare)</p>"
           }
         ]
       },
@@ -922,13 +929,20 @@
             "optional": false,
             "field": "noteForDriver",
             "description": "<p>Ghi chú cho tài xế</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "promotion_code",
+            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{   \n    \"countryName\": Vietnam\n    \"PickUpAddress\": 20 ngõ 30 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội\n    \"driverIds\": 86,100,607869\n    \"stateName\": Hà Nội\n    \"DestLongitude\": 105.7835446\n    \"DestLatitude\": 20.9866676\n    \"requestId\": 54867541557114729\n    \"DestAddress\": 66 LK6A, Hà Đông, Hà Nội, Việt Nam\n    \"PickUpLongitude\": 105.8461928\n    \"PickUpLatitude\": 21.0067366\n    \"distance\": 9152\n    \"noteForDriver\": i am groot\n}",
+          "content": "{   \n    \"countryName\": Vietnam\n    \"PickUpAddress\": 20 ngõ 30 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội\n    \"driverIds\": 86,100,607869\n    \"stateName\": Hà Nội\n    \"DestLongitude\": 105.7835446\n    \"DestLatitude\": 20.9866676\n    \"requestId\": 54867541557114729\n    \"DestAddress\": 66 LK6A, Hà Đông, Hà Nội, Việt Nam\n    \"PickUpLongitude\": 105.8461928\n    \"PickUpLatitude\": 21.0067366\n    \"distance\": 9152\n    \"noteForDriver\": i am groot\n    \"promotion_code\": VT10K\n}",
           "type": "json"
         },
         {
@@ -1173,13 +1187,20 @@
             "optional": false,
             "field": "parcelPrice",
             "description": "<p>Giá trị hàng hóa (sẽ bỏ không sử dụng)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "promotion_code",
+            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"requestId\": 55491961558095554,\n       \"distance\": 6900,\n       \"driverIds\": \"607759,607823,100,607954,607822\",\n       \"stateName\": Hà Nội,\n       \"countryName\": Vietnam,\n       \"selectedCarTypeID\": 161,\n       \"PickUpAddress\": Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam,\n       \"PickUpLongitude\": 21.007541,\n       \"PickUpLatitude\": 105.847476,\n       \"DestAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n       \"DestLatitude\": 21.0873555,\n       \"DestLongitude\": 105.8094916,\n       \"listReceivePoints\": [\n           {\n               \"receiveAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n               \"receiveUserName\": A Định,\n               \"receiveUserPhone\": 0389595186,\n               \"note\": \"\",\n               \"latitude\": 21.0873555,\n               \"longitude\": 105.8094916,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\"\n           }\n       ],\n       \"truckDetail\": {\n           \"weight\": 1000,\n           \"height\": 10,\n           \"width\": 10,\n           \"length\": 10,\n           \"truckDetailId\": 32132\n       }\n}",
+          "content": "{\n    \"requestId\": 55491961558095554,\n       \"distance\": 6900,\n       \"driverIds\": \"607759,607823,100,607954,607822\",\n       \"stateName\": Hà Nội,\n       \"countryName\": Vietnam,\n       \"selectedCarTypeID\": 161,\n       \"PickUpAddress\": Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam,\n       \"PickUpLongitude\": 21.007541,\n       \"PickUpLatitude\": 105.847476,\n       \"DestAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n       \"DestLatitude\": 21.0873555,\n       \"DestLongitude\": 105.8094916,\n       \"listReceivePoints\": [\n           {\n               \"receiveAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n               \"receiveUserName\": A Định,\n               \"receiveUserPhone\": 0389595186,\n               \"note\": \"\",\n               \"latitude\": 21.0873555,\n               \"longitude\": 105.8094916,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\"\n           }\n       ],\n       \"truckDetail\": {\n           \"weight\": 1000,\n           \"height\": 10,\n           \"width\": 10,\n           \"length\": 10,\n           \"truckDetailId\": 32132\n       },\n       \"promotion_code\":\"VT10\"\n}",
           "type": "json"
         }
       ]
@@ -2323,13 +2344,20 @@
             "optional": false,
             "field": "noteForDriver",
             "description": "<p>Ghi chú cho tài xế</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "promotion_code",
+            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{   \n    \"countryName\": Vietnam\n    \"PickUpAddress\": 20 ngõ 30 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội\n    \"driverIds\": 86,100,607869\n    \"stateName\": Hà Nội\n    \"DestLongitude\": 105.7835446\n    \"DestLatitude\": 20.9866676\n    \"requestId\": 54867541557114729\n    \"DestAddress\": 66 LK6A, Hà Đông, Hà Nội, Việt Nam\n    \"PickUpLongitude\": 105.8461928\n    \"PickUpLatitude\": 21.0067366\n    \"distance\": 9152\n    \"noteForDriver\": i am groot\n}",
+          "content": "{   \n    \"countryName\": Vietnam\n    \"PickUpAddress\": 20 ngõ 30 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội\n    \"driverIds\": 86,100,607869\n    \"stateName\": Hà Nội\n    \"DestLongitude\": 105.7835446\n    \"DestLatitude\": 20.9866676\n    \"requestId\": 54867541557114729\n    \"DestAddress\": 66 LK6A, Hà Đông, Hà Nội, Việt Nam\n    \"PickUpLongitude\": 105.8461928\n    \"PickUpLatitude\": 21.0067366\n    \"distance\": 9152\n    \"noteForDriver\": i am groot\n    \"promotion_code\": VT10K\n}",
           "type": "json"
         },
         {
