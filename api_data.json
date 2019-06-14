@@ -2448,13 +2448,20 @@
             "optional": false,
             "field": "promotion_code",
             "description": "<p>Mã khuyến mại cần check</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "iVehicleId",
+            "description": "<p>Mã dịch vụ chuyến đi</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{   \n    \"promotion_code\": VT10K\n}",
+          "content": "{   \n    \"promotion_code\": VT10K\n    \"iVehicleId\": 159\n}",
           "type": "json"
         },
         {
