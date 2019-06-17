@@ -5070,7 +5070,7 @@
             "type": "int",
             "optional": false,
             "field": "total_fare",
-            "description": "<p>Tổng giá cước trước khuyến mãi</p>"
+            "description": "<p>Tổng giá cước sau khi trừ khuyến mại</p>"
           },
           {
             "group": "Success 200",
@@ -5168,7 +5168,7 @@
             "type": "int",
             "optional": false,
             "field": "rawFare",
-            "description": "<p>Tổng cước phí chưa trừ khuyến mãi (cước thô)</p>"
+            "description": "<p>Tổng cước phí chưa trừ khuyến mãi ( = total_fare + discountFare )</p>"
           },
           {
             "group": "Success 200",
