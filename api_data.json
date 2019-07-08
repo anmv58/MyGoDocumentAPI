@@ -2246,7 +2246,88 @@
             "type": "int",
             "optional": false,
             "field": "page",
-            "description": "<p>số trang kết quả muốn hiển thị</p>"
+            "description": "<p>Số thứ tự trang kết quả trả về</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "vehicleTypeId",
+            "description": "<p>Mã dịch vụ (bike/ship/truck)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Mã trạng thái code đơn hàng (PROCESS_TRIP_01 ...)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orderCode",
+            "description": "<p>Mã chữ đơn hàng (tìm kiếm chính xác đơn hàng)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": [\n           {\n               \"iTripId\": \"4887\",\n               \"vRideNo\": \"28714198\",\n               \"iUserId\": \"5525779\",\n               \"iDriverId\": \"607954\",\n               \"tripType\": \"Km\",\n               \"tripTypeSecond\": \"0\",\n               \"tTripRequestDate\": \"2019-05-21 17:43:43\",\n               \"tDriverArrivedDate\": \"0000-00-00 00:00:00\",\n               \"tStartDate\": \"2019-05-21 17:43:43\",\n               \"tEndDate\": \"0000-00-00 00:00:00\",\n               \"iDriverVehicleId\": \"33153\",\n               \"tStartLat\": \"105.847\",\n               \"tStartLong\": \"21.0075\",\n               \"tEndLat\": \"21.0873555\",\n               \"tEndLong\": \"105.8094916\",\n               \"tSaddress\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n               \"tDaddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"iFare\": \"23000\",\n               \"fPricePerKM\": \"15000\",\n               \"fPricePerKM_0\": \"14500\",\n               \"fPricePerKM_30\": \"4500\",\n               \"fPricePerKM_60\": \"4500\",\n               \"iBaseFare\": \"0\",\n               \"iBaseFare_30\": \"0\",\n               \"iBaseFare_NB_HN\": \"0\",\n               \"iBaseFare_HN_NB\": \"0\",\n               \"fPricePerMin\": \"1.5\",\n               \"fCommision\": \"3450\",\n               \"fDistance\": \"326\",\n               \"fDuration\": null,\n               \"iActive\": \"Active\",\n               \"iVerificationCode\": \"4042\",\n               \"eVerified\": \"Not Verified\",\n               \"eCarType\": \"CarX\",\n               \"iVehicleTypeId\": \"152\",\n               \"fPickUpPrice\": \"0\",\n               \"fNightPrice\": \"1\",\n               \"vTripPaymentMode\": \"Cash\",\n               \"vCurrencyPassenger\": \"VND\",\n               \"vCurrencyDriver\": \"VND\",\n               \"fRatioPassenger\": \"1\",\n               \"fRatioDriver\": \"1\",\n               \"ePayment_request\": \"No\",\n               \"vCancelReason\": \"\",\n               \"vCancelComment\": \"\",\n               \"eCancelled\": \"No\",\n               \"vCouponCode\": \"\",\n               \"vDiscount\": \"\",\n               \"fDiscount\": \"0\",\n               \"eDriverPaymentStatus\": \"Unsettelled\",\n               \"ePaymentCollect\": \"No\",\n               \"eType\": \"Deliver\",\n               \"iPackageTypeId\": \"0\",\n               \"vSenderName\": \"\",\n               \"vSenderMobile\": \"\",\n               \"vReceiverName\": \"\",\n               \"vReceiverMobile\": \"\",\n               \"tDetailFromAddr\": \"\",\n               \"tDetailToAddr\": \"\",\n               \"bTipDeliver\": \"0\",\n               \"bTantayDeliver\": \"0\",\n               \"bKyDeliver\": \"0\",\n               \"fCodDeliver\": \"0\",\n               \"tPickUpIns\": \"\",\n               \"tDeliveryIns\": \"\",\n               \"tPackageDetails\": \"\",\n               \"iUserPetId\": \"0\",\n               \"vDeliveryConfirmCode\": \"\",\n               \"fRatio_VND\": \"1.000000\",\n               \"fRatio_USD\": \"0.000000\",\n               \"eFareType\": \"Regular\",\n               \"fMinFareDiff\": \"0\",\n               \"fWalletDebit\": \"0\",\n               \"fSurgePriceDiff\": \"0\",\n               \"vBeforeImage\": \"\",\n               \"vAfterImage\": \"\",\n               \"fTripGenerateFare\": \"0\",\n               \"fGDtime\": \"\",\n               \"fGDdistance\": \"\",\n               \"fTipPrice\": \"0\",\n               \"iQty\": \"1\",\n               \"fVisitFee\": \"0\",\n               \"fMaterialFee\": \"0\",\n               \"fMiscFee\": \"0\",\n               \"fDriverDiscount\": \"0\",\n               \"fCancellationFare\": \"0\",\n               \"eCancelChargeFailed\": \"No\",\n               \"eCancelledBy\": \"Passenger\",\n               \"vChannel\": \"\",\n               \"fPickNormalTime\": \"1\",\n               \"tDriverLat\": null,\n               \"tDriverLong\": null,\n               \"distance\": \"0\",\n               \"duration\": \"0\",\n               \"iDurationRent\": \"0\",\n               \"tNoteDriver\": \"\",\n               \"vSignatureImage\": \"\",\n               \"vReceiverImage\": \"\",\n               \"fTipDeliver\": \"0\",\n               \"desOfGood\": \"\",\n               \"noteForDriver\": \"\",\n               \"noteOfGood\": \"\",\n               \"transfer_return_status\": \"0\",\n               \"trip_code\": \"GNT5FRZF\",\n               \"last_progress_trip\": \"Active\",\n               \"reason_transfer\": null,\n               \"last_progress_trip_code\": \"PROCESS_TRIP_01\",\n               \"last_progress_trip_name\": \"Tìm tài xế\",\n               \"fareBaseDistance\": \"15000\",\n               \"additionalFareForPointDelivery\": \"5000\",\n               \"additionalFareForCOD\": \"3000\",\n               \"vName\": \"Mavel Captain An\",\n               \"vPhone\": \"0921906536\"\n           }\n       ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/get_customer_history.php",
+    "title": "16. Lấy thông tin lịch sử chuyến đi (WEB version)",
+    "name": "16__L_y_th_ng_tin_l_ch_s__chuy_n__i__WEB_version_",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Số thứ tự trang kết quả trả về</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "pageSize",
+            "description": "<p>Số lượng kết quả trên 1 trang</p>"
           },
           {
             "group": "Parameter",
@@ -2273,10 +2354,21 @@
       }
     },
     "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "totalRecord",
+            "description": "<p>Tổng số lượng bản ghi kết quả trả về</p>"
+          }
+        ]
+      },
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": [\n           {\n               \"iTripId\": \"4887\",\n               \"vRideNo\": \"28714198\",\n               \"iUserId\": \"5525779\",\n               \"iDriverId\": \"607954\",\n               \"tripType\": \"Km\",\n               \"tripTypeSecond\": \"0\",\n               \"tTripRequestDate\": \"2019-05-21 17:43:43\",\n               \"tDriverArrivedDate\": \"0000-00-00 00:00:00\",\n               \"tStartDate\": \"2019-05-21 17:43:43\",\n               \"tEndDate\": \"0000-00-00 00:00:00\",\n               \"iDriverVehicleId\": \"33153\",\n               \"tStartLat\": \"105.847\",\n               \"tStartLong\": \"21.0075\",\n               \"tEndLat\": \"21.0873555\",\n               \"tEndLong\": \"105.8094916\",\n               \"tSaddress\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n               \"tDaddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"iFare\": \"23000\",\n               \"fPricePerKM\": \"15000\",\n               \"fPricePerKM_0\": \"14500\",\n               \"fPricePerKM_30\": \"4500\",\n               \"fPricePerKM_60\": \"4500\",\n               \"iBaseFare\": \"0\",\n               \"iBaseFare_30\": \"0\",\n               \"iBaseFare_NB_HN\": \"0\",\n               \"iBaseFare_HN_NB\": \"0\",\n               \"fPricePerMin\": \"1.5\",\n               \"fCommision\": \"3450\",\n               \"fDistance\": \"326\",\n               \"fDuration\": null,\n               \"iActive\": \"Active\",\n               \"iVerificationCode\": \"4042\",\n               \"eVerified\": \"Not Verified\",\n               \"eCarType\": \"CarX\",\n               \"iVehicleTypeId\": \"152\",\n               \"fPickUpPrice\": \"0\",\n               \"fNightPrice\": \"1\",\n               \"vTripPaymentMode\": \"Cash\",\n               \"vCurrencyPassenger\": \"VND\",\n               \"vCurrencyDriver\": \"VND\",\n               \"fRatioPassenger\": \"1\",\n               \"fRatioDriver\": \"1\",\n               \"ePayment_request\": \"No\",\n               \"vCancelReason\": \"\",\n               \"vCancelComment\": \"\",\n               \"eCancelled\": \"No\",\n               \"vCouponCode\": \"\",\n               \"vDiscount\": \"\",\n               \"fDiscount\": \"0\",\n               \"eDriverPaymentStatus\": \"Unsettelled\",\n               \"ePaymentCollect\": \"No\",\n               \"eType\": \"Deliver\",\n               \"iPackageTypeId\": \"0\",\n               \"vSenderName\": \"\",\n               \"vSenderMobile\": \"\",\n               \"vReceiverName\": \"\",\n               \"vReceiverMobile\": \"\",\n               \"tDetailFromAddr\": \"\",\n               \"tDetailToAddr\": \"\",\n               \"bTipDeliver\": \"0\",\n               \"bTantayDeliver\": \"0\",\n               \"bKyDeliver\": \"0\",\n               \"fCodDeliver\": \"0\",\n               \"tPickUpIns\": \"\",\n               \"tDeliveryIns\": \"\",\n               \"tPackageDetails\": \"\",\n               \"iUserPetId\": \"0\",\n               \"vDeliveryConfirmCode\": \"\",\n               \"fRatio_VND\": \"1.000000\",\n               \"fRatio_USD\": \"0.000000\",\n               \"eFareType\": \"Regular\",\n               \"fMinFareDiff\": \"0\",\n               \"fWalletDebit\": \"0\",\n               \"fSurgePriceDiff\": \"0\",\n               \"vBeforeImage\": \"\",\n               \"vAfterImage\": \"\",\n               \"fTripGenerateFare\": \"0\",\n               \"fGDtime\": \"\",\n               \"fGDdistance\": \"\",\n               \"fTipPrice\": \"0\",\n               \"iQty\": \"1\",\n               \"fVisitFee\": \"0\",\n               \"fMaterialFee\": \"0\",\n               \"fMiscFee\": \"0\",\n               \"fDriverDiscount\": \"0\",\n               \"fCancellationFare\": \"0\",\n               \"eCancelChargeFailed\": \"No\",\n               \"eCancelledBy\": \"Passenger\",\n               \"vChannel\": \"\",\n               \"fPickNormalTime\": \"1\",\n               \"tDriverLat\": null,\n               \"tDriverLong\": null,\n               \"distance\": \"0\",\n               \"duration\": \"0\",\n               \"iDurationRent\": \"0\",\n               \"tNoteDriver\": \"\",\n               \"vSignatureImage\": \"\",\n               \"vReceiverImage\": \"\",\n               \"fTipDeliver\": \"0\",\n               \"desOfGood\": \"\",\n               \"noteForDriver\": \"\",\n               \"noteOfGood\": \"\",\n               \"transfer_return_status\": \"0\",\n               \"trip_code\": \"GNT5FRZF\",\n               \"last_progress_trip\": \"Active\",\n               \"reason_transfer\": null,\n               \"last_progress_trip_code\": \"PROCESS_TRIP_01\",\n               \"last_progress_trip_name\": \"Tìm tài xế\",\n               \"fareBaseDistance\": \"15000\",\n               \"additionalFareForPointDelivery\": \"5000\",\n               \"additionalFareForCOD\": \"3000\",\n               \"vName\": \"Mavel Captain An\",\n               \"vPhone\": \"0921906536\"\n           }\n       ]\n}",
+          "content": " {\n    \"status\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"totalRecord\": 265,\n        \"page\": 1,\n        \"pageSize\": 10,\n        \"data\": [\n            {\n                \"iTripId\": 8148,\n                \"fTripGenerateFare\": 0,\n                \"bonusDriver\": 5850,\n                \"fareOfCommision\": 7800,\n                \"additionalFareForCOD\": 0,\n                \"additionalFareForPointDelivery\": 0,\n                \"fareBaseDistance\": 39000,\n                \"discountFare\": 0,\n                \"rawFare\": 39000,\n                \"driverIncome\": 31200,\n                \"fTipPrice\": 0,\n                \"fPricePerKM\": 32000,\n                \"tripType\": \"Km\",\n                \"tripDistance\": 7.83,\n                \"tripStatus\": \"Canceled\",\n                \"fRatio_VND\": 1,\n                \"trip_code\": \"GNTJ4545QO3\",\n                \"type\": \"Ride\",\n                \"requestTime\": \"2019-07-06 19:02:15\",\n                \"vehicleTypeId\": 159,\n                \"startLat\": \"21.0066\",\n                \"startLong\": \"105.846\",\n                \"startAddress\": \"Ngõ 30 Phố Tạ Quang Bửu, P. Bách Khoa, Quận Hai Bà Trưng, Thành Phố Hà Nội, Vietnam\",\n                \"endLat\": \"20.951758932310636\",\n                \"endLong\": \"105.83163611590862\",\n                \"endAddress\": \"Xã Tam Hiệp, H. Thanh Trì, Thành Phố Hà Nội, Vietnam\",\n                \"last_progress_trip\": \"Canceled\",\n                \"last_progress_trip_code\": \"PROCESS_TRIP_06\",\n                \"last_progress_trip_name\": \"Đã hủy\",\n                \"payType\": \"Cash\",\n                \"vRatingU\": 0\n            },\n            {\n                \"iTripId\": 8144,\n                \"fTripGenerateFare\": 0,\n                \"bonusDriver\": 19650,\n                \"fareOfCommision\": 26200,\n                \"additionalFareForCOD\": 0,\n                \"additionalFareForPointDelivery\": 0,\n                \"fareBaseDistance\": 131000,\n                \"discountFare\": 0,\n                \"rawFare\": 131000,\n                \"driverIncome\": 104800,\n                \"fTipPrice\": 0,\n                \"fPricePerKM\": 109000,\n                \"tripType\": \"Km\",\n                \"tripDistance\": 12.57,\n                \"tripStatus\": \"Canceled\",\n                \"fRatio_VND\": 1,\n                \"trip_code\": \"GNT0J0598U5\",\n                \"type\": \"Car\",\n                \"requestTime\": \"2019-07-06 16:32:30\",\n                \"vehicleTypeId\": 156,\n                \"startLat\": \"21.0068\",\n                \"startLong\": \"105.846\",\n                \"startAddress\": \"Ngách 30/18 phố Tạ Quang Bửu, P. Bách Khoa, Quận Hai Bà Trưng, Thành Phố Hà Nội, Vietnam\",\n                \"endLat\": \"20.9060497330018\",\n                \"endLong\": \"105.83042945712805\",\n                \"endAddress\": \"Xã Đại Áng, H. Thanh Trì, Thành Phố Hà Nội, Vietnam\",\n                \"last_progress_trip\": \"Canceled\",\n                \"last_progress_trip_code\": \"PROCESS_TRIP_06\",\n                \"last_progress_trip_name\": \"Đã hủy\",\n                \"payType\": \"Cash\",\n                \"vRatingU\": 0\n            }\n        ]\n}",
           "type": "json"
         }
       ]
@@ -2287,8 +2379,8 @@
   {
     "type": "get",
     "url": "/api/v1/customer/send_request_driver_car.php",
-    "title": "16. Gửi yêu cầu dịch vụ Car",
-    "name": "16__G_i_y_u_c_u_d_ch_v__Car",
+    "title": "17. Gửi yêu cầu dịch vụ Car",
+    "name": "17__G_i_y_u_c_u_d_ch_v__Car",
     "group": "Customer",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
@@ -2475,8 +2567,8 @@
   {
     "type": "get",
     "url": "/api/v1/customer/check_promotion.php",
-    "title": "17. Check mã Khuyến mại hợp lệ",
-    "name": "17__Check_m__Khuy_n_m_i_h_p_l_",
+    "title": "18. Check mã Khuyến mại hợp lệ",
+    "name": "18__Check_m__Khuy_n_m_i_h_p_l_",
     "group": "Customer",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
@@ -2587,8 +2679,8 @@
   {
     "type": "post",
     "url": "/api/v1/customer/request_viettel_pay.php",
-    "title": "18. Request to Viettel Pay",
-    "name": "18__Request_to_Viettel_Pay",
+    "title": "19. Request to Viettel Pay",
+    "name": "19__Request_to_Viettel_Pay",
     "group": "Customer",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
@@ -2749,8 +2841,8 @@
   {
     "type": "post",
     "url": "/api/v1/driver/getBalance.php",
-    "title": "19. Truy vấn số dư ví",
-    "name": "19__Truy_v_n_s__d__v_",
+    "title": "20. Truy vấn số dư ví",
+    "name": "20__Truy_v_n_s__d__v_",
     "group": "Customer",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
@@ -2807,8 +2899,8 @@
   {
     "type": "get",
     "url": "/api/v1/customer/getTransactionHistory.php",
-    "title": "20. Lấy lịch sử giao dịch ví",
-    "name": "20__L_y_l_ch_s__giao_d_ch_v_",
+    "title": "21. Lấy lịch sử giao dịch ví",
+    "name": "21__L_y_l_ch_s__giao_d_ch_v_",
     "group": "Customer",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
@@ -2934,8 +3026,8 @@
   {
     "type": "get",
     "url": "/api/v1/customer/getCurrentStateOrder.php",
-    "title": "21. Lấy trạng thái chuyến đi hiện tại của KH",
-    "name": "21__L_y_tr_ng_th_i_chuy_n__i_hi_n_t_i_c_a_KH",
+    "title": "22. Lấy trạng thái chuyến đi hiện tại của KH",
+    "name": "22__L_y_tr_ng_th_i_chuy_n__i_hi_n_t_i_c_a_KH",
     "group": "Customer",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
