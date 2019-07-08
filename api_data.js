@@ -544,13 +544,27 @@ define({ "api": [
             "optional": false,
             "field": "promotion_code",
             "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "shipType",
+            "description": "<p>0 nếu ship 1-1; 1 nếu ship 1-N đồng giá</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "feePerReceiverPoint",
+            "description": "<p>Cước phí trên mỗi điểm giao nếu lựa chọn dịch vụ đồng giá (trong khoảng 6000-20000)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{\n    \"tripType\": Km\n    \"distance\": 6900\n    \"SelectedCar\": 152\n    \"totalPointDelivery\": 2\n    \"cod\": 1000000\n    \"promotion_code\": VT10K  \n}",
+          "content": "{\n    \"tripType\": Km\n    \"distance\": 6900\n    \"SelectedCar\": 152\n    \"totalPointDelivery\": 2\n    \"cod\": 1000000\n    \"promotion_code\": VT10K \n    \"shipType\": 1\n    \"feePerReceiverPoint\": 20000 \n}",
           "type": "json"
         },
         {
@@ -665,8 +679,13 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Example:",
+          "title": "Success-Example-ShipType=0:",
           "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": {\n           \"total_fare\": 16000,\n           \"FareOfCommision\": 3200,\n           \"TripDistance\": 3.1,\n           \"tripType\": \"Km\",\n           \"additionalFareForCOD\": 0,\n           \"additionalFareForPointDelivery\": 0,\n           \"fareBaseDistance\": 16000,\n           \"discount_fare\": 0,\n           \"driver_income\": 12800,\n           \"bonus_for_driver\": 2400,\n           \"raw_fare\": 16000\n       }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Example-ShipType=1:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": {\n           \"total_fare\": 60000,\n           \"FareOfCommision\": 12000,\n           \"TripDistance\": 1,\n           \"tripType\": \"Km\",\n           \"additionalFareForCOD\": 0,\n           \"additionalFareForPointDelivery\": 0,\n           \"fareBaseDistance\": 0,\n           \"discount_fare\": 0,\n           \"driver_income\": 48000,\n           \"bonus_for_driver\": 9000,\n           \"raw_fare\": 60000\n       }\n}",
           "type": "json"
         }
       ]
@@ -1215,13 +1234,27 @@ define({ "api": [
             "optional": false,
             "field": "payType",
             "description": "<p>1 nếu thanh toán tiền mặt; 2 nếu thanh toán bằng ví</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "shipType",
+            "description": "<p>0 nếu ship 1-1; 1 nếu ship 1-N đồng giá</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "feePerReceiverPoint",
+            "description": "<p>Cước phí trên mỗi điểm giao nếu lựa chọn dịch vụ đồng giá (trong khoảng 6000-20000)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"requestId\": 55491961558095554,\n       \"distance\": 6900,\n       \"driverIds\": \"607759,607823,100,607954,607822\",\n       \"stateName\": Hà Nội,\n       \"countryName\": Vietnam,\n       \"selectedCarTypeID\": 161,\n       \"PickUpAddress\": Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam,\n       \"PickUpLongitude\": 21.007541,\n       \"PickUpLatitude\": 105.847476,\n       \"DestAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n       \"DestLatitude\": 21.0873555,\n       \"DestLongitude\": 105.8094916,\n       \"listReceivePoints\": [\n           {\n               \"receiveAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n               \"receiveUserName\": A Định,\n               \"receiveUserPhone\": 0389595186,\n               \"note\": \"\",\n               \"latitude\": 21.0873555,\n               \"longitude\": 105.8094916,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\"\n           }\n       ],\n       \"truckDetail\": {\n           \"weight\": 1000,\n           \"height\": 10,\n           \"width\": 10,\n           \"length\": 10,\n           \"truckDetailId\": 32132\n       },\n       \"promotion_code\":\"VT10\",\n       \"payType\": 1\n}",
+          "content": "     {\n         \"requestId\": 55491961558095554,\n            \"distance\": 6900,\n            \"driverIds\": \"607759,607823,100,607954,607822\",\n            \"stateName\": Hà Nội,\n            \"countryName\": Vietnam,\n            \"selectedCarTypeID\": 161,\n            \"PickUpAddress\": Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam,\n            \"PickUpLongitude\": 21.007541,\n            \"PickUpLatitude\": 105.847476,\n            \"DestAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n            \"DestLatitude\": 21.0873555,\n            \"DestLongitude\": 105.8094916,\n            \"listReceivePoints\": [\n                {\n                    \"receiveAddress\": Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam,\n                    \"receiveUserName\": A Định,\n                    \"receiveUserPhone\": 0389595186,\n                    \"note\": \"\",\n                    \"latitude\": 21.0873555,\n                    \"longitude\": 105.8094916,\n                    \"feeCod\": 0,\n                    \"parcelName\": \"\",\n                    \"parcelPrice\": \"\"\n                }\n            ],\n            \"truckDetail\": {\n                \"weight\": 1000,\n                \"height\": 10,\n                \"width\": 10,\n                \"length\": 10,\n                \"truckDetailId\": 32132\n            },\n            \"promotion_code\":\"VT10\",\n            \"payType\": 1\n            \"shipType\": 1,\n\t        \"feePerReceiverPoint\": 20000\n     }",
           "type": "json"
         }
       ]
@@ -2764,6 +2797,249 @@ define({ "api": [
         {
           "title": "Success-Example:",
           "content": "{\n       Hiện chưa có example!\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/getTransactionHistory.php",
+    "title": "20. Lấy lịch sử giao dịch ví",
+    "name": "20__L_y_l_ch_s__giao_d_ch_v_",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "defaultValue": "1;",
+            "description": "<p>Kết quả trả về sẽ được chia thành số trang nếu truyền lên</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "pageSize",
+            "description": "<p>Số lượng kết quả ở mỗi trang</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "defaultValue": "0",
+            "description": "<p>(tất cả); = 1 Credit; = 2 Debit;</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"page\": 2\n    \"pageSize\": 10\n    \"type\": Credit\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{\n    https://vtmove-apiv2.ddns.net/api/v1/customer/getTransactionHistory.php?page=1&pageSize=10&type=0\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "totalRecord",
+            "description": "<p>tổng số bản ghi lịch sử ví</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "totalPage",
+            "description": "<p>Tổng số Trang kết quả lịch sử ví</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Trang kết quả hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "pageSize",
+            "description": "<p>Số lượng bản ghi trên 1 trang</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{   \n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"totalRecord\": 0,\n           \"totalPage\": 0,\n           \"page\": 1,\n           \"pageSize\": 10,\n           \"data\": null\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/getCurrentStateOrder.php",
+    "title": "21. Lấy trạng thái chuyến đi hiện tại của KH",
+    "name": "21__L_y_tr_ng_th_i_chuy_n__i_hi_n_t_i_c_a_KH",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json; charset=UTF-8</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Content-Type\": \"application/json; charset=UTF-8\"\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Không cần truyền lên:",
+          "content": "{\n    Không cần truyền lên.\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Thông tin trạng thái hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripId",
+            "description": "<p>Mã Id chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_progress_trip",
+            "description": "<p>Trạng thái chuyến đi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_progress_trip_code",
+            "description": "<p>Mã trạng thái chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_progress_trip_name",
+            "description": "<p>Tên trạng thái chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>Trạng thái</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"tripId\": \"8129\",\n           \"last_progress_trip\": \"Active\",\n           \"last_progress_trip_code\": \"PROCESS_TRIP_01\",\n           \"last_progress_trip_name\": \"Tài xế đang đến\",\n           \"state\": \"Active\"\n       }\n}",
           "type": "json"
         }
       ]
@@ -6823,6 +7099,106 @@ define({ "api": [
         {
           "title": "Success-Example:",
           "content": "{\n       Hiện chưa có example!\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Driver"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/driver/logout.php",
+    "title": "35. Lấy thông tin tài xế bằng SĐT",
+    "name": "35__L_y_th_ng_tin_t_i_x__b_ng_S_T",
+    "group": "Driver",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "msisdn",
+            "description": "<p>Số điện thoại cần tra cứu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"msisdn\": 0982405200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>dữ liệu tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "driverId",
+            "description": "<p>Mã ID của Tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Tên tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fullName",
+            "description": "<p>Họ tên đầy đủ của Tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "service",
+            "description": "<p>Dịch vụ Tài xế đã đăng kí</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "str_service",
+            "description": "<p>Tên dịch vụ Tài xế đăng kí</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"driverId\": 608722,\n           \"name\": \"Mai An\",\n           \"fullName\": \"Mai An An\",\n           \"service\": [\n               {\n                   \"159\": \"Xe máy\"\n               }\n           ],\n           \"str_service\": \"Xe máy\"\n       }\n}",
           "type": "json"
         }
       ]
