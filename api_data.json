@@ -3140,6 +3140,242 @@
     "groupTitle": "Customer"
   },
   {
+    "type": "get",
+    "url": "/api/v1/customer/getCurrentStateOrder.php",
+    "title": "22. Lấy trạng thái chuyến đi hiện tại của KH",
+    "name": "22__L_y_tr_ng_th_i_chuy_n__i_hi_n_t_i_c_a_KH",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json; charset=UTF-8</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Content-Type\": \"application/json; charset=UTF-8\"\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Không cần truyền lên:",
+          "content": "{\n    Không cần truyền lên.\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Thông tin trạng thái hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripId",
+            "description": "<p>Mã Id chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_progress_trip",
+            "description": "<p>Trạng thái chuyến đi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_progress_trip_code",
+            "description": "<p>Mã trạng thái chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "last_progress_trip_name",
+            "description": "<p>Tên trạng thái chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>Trạng thái</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"tripId\": \"8129\",\n           \"last_progress_trip\": \"Active\",\n           \"last_progress_trip_code\": \"PROCESS_TRIP_01\",\n           \"last_progress_trip_name\": \"Tài xế đang đến\",\n           \"state\": \"Active\"\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/getOrderDetailByRequest.php",
+    "title": "23. Lấy thông tin chuyến đi bằng iRequestId",
+    "name": "23__L_y_th_ng_tin_chuy_n__i_b_ng_iRequestId",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "requestId",
+            "description": "<p>Mã Id yêu cầu chuyến đi.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Không cần truyền lên:",
+          "content": "{\n    \"requestId\": 86517\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Thông tin trạng thái hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripId",
+            "description": "<p>Mã Id chuyến đi hiện tại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Mã Id khách hàng</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "driverId",
+            "description": "<p>Mã Id tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iFare",
+            "description": "<p>Tổng cước chuyến đi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripStatus",
+            "description": "<p>Trạng thái chuyến đi</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"tripId\": \"8118\",\n           \"userId\": \"5569173\",\n           \"driverId\": \"608631\",\n           \"tripType\": \"Km\",\n           \"tTripRequestDate\": \"2019-07-06 11:34:56\",\n           \"tStartDate\": \"2019-07-06 11:34:26\",\n           \"tEndDate\": \"2019-07-06 11:34:56\",\n           \"tStartLat\": \"105.847\",\n           \"tStartLong\": \"21.0075\",\n           \"tEndLat\": \"21.0873555\",\n           \"tEndLong\": \"105.8094916\",\n           \"tSaddress\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n           \"tDaddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n           \"iFare\": \"60000\",\n           \"fPricePerKM\": \"0\",\n           \"bonusDriver\": \"9000\",\n           \"fareOfCommision\": \"0\",\n           \"discountFare\": \"0\",\n           \"rawFare\": \"60000\",\n           \"driverIncome\": \"48000\",\n           \"fTipPrice\": \"0\",\n           \"fareBaseDistance\": \"0\",\n           \"additionalFareForPointDelivery\": \"0\",\n           \"tripDistance\": \"3000\",\n           \"iVehicleTypeId\": \"152\",\n           \"payType\": \"Cash\",\n           \"eType\": \"Deliver\",\n           \"tripStatus\": \"Finished\",\n           \"last_progress_trip\": \"Finished\",\n           \"last_progress_trip_name\": \"Kết thúc đơn hàng\",\n           \"driverInfo\": {\n               \"driverId\": \"608631\",\n               \"name\": \"Đông\",\n               \"fullName\": \"Đông \",\n               \"iCompanyId\": \"80\",\n               \"phone\": \"0977212594\",\n               \"gender\": \"Male\",\n               \"deviceType\": \"Android\",\n               \"rating\": \"5\",\n               \"licencePlate\": \"29f111023\"\n           }\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
     "type": "post",
     "url": "/api/v1/driver/signIn.php",
     "title": "01. Đăng nhập bằng số điện thoại",
