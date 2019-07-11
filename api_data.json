@@ -7788,6 +7788,13 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "cityId",
+            "description": "<p>Mã ID tỉnh thành đăng kí</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "iMakeId",
             "description": "<p>ID hãng xe</p>"
           },
@@ -7811,13 +7818,34 @@
             "optional": false,
             "field": "images",
             "description": "<p>Các ảnh trong hồ sơ (bằng lái, phù hiệp, Chứng minh thư ...)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Tiêu đề ảnh</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imgType",
+            "description": "<p>Loại kiểu ảnh (giấy phép lái xe, chứng minh thư v..v)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>Đường dẫn đến ảnh</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"driverId\": \"608670\",\n           \"name\": \"Dat\",\n           \"fullName\": \"Dat \",\n           \"phone\": \"0904309423\",\n           \"createdAt\": \"2019-06-18 18:05:57\",\n           \"state\": \"wait\",\n           \"avatar\": \"\",\n           \"taxiName\": null,\n           \"city\": \"Hà Nội\",\n           \"service\": {\n               \"iMakeId\": \"135\",\n               \"iModelId\": \"1323\",\n               \"vLicencePlate\": \"29D2-11445\"\n           },\n           \"images\": []\n       }\n}",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"driverId\": \"100\",\n           \"name\": \"Đạt 09\",\n           \"fullName\": \"Đạt 09 \",\n           \"phone\": \"0868993921\",\n           \"createdAt\": \"2019-03-20 10:10:10\",\n           \"state\": \"approved\",\n           \"avatar\": \"https:\\/\\/vtmove-apiv2.ddns.net\\/webimages\\/upload\\/Driver\\/2019_07_11\\/nwh1562850115.png\",\n           \"taxiName\": null,\n           \"city\": \"Hà Nội\",\n           \"cityId\": \"1\",\n           \"service\": {\n               \"iMakeId\": \"23\",\n               \"iModelId\": \"225\",\n               \"vLicencePlate\": \"29P1 57048\",\n               \"carType\": [\n                   {\n                       \"159\": \"Xe máy\"\n                   },\n                   {\n                       \"152\": \"Giao hàng\"\n                   }\n               ]\n           },\n           \"images\": [\n               {\n                   \"title\": \"cek1562830037.jpg\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/cek1562830037.jpg\"\n               },\n               {\n                   \"title\": \"puu1562835801.jpg\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/puu1562835801.jpg\"\n               },\n               {\n                   \"title\": \"ajs1562835801.jpg\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/ajs1562835801.jpg\"\n               },\n               {\n                   \"title\": \"dpm1562835804.jpg\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/dpm1562835804.jpg\"\n               },\n               {\n                   \"title\": \"tlp1562835804.jpg\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/tlp1562835804.jpg\"\n               },\n               {\n                   \"title\": \"nwh1562850115.png\",\n                   \"imgType\": \"avatar\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/nwh1562850115.png\"\n               },\n               {\n                   \"title\": \"xvx1562850115.png\",\n                   \"imgType\": \"sign\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/xvx1562850115.png\"\n               },\n               {\n                   \"title\": \"lhp1562850115.png\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/lhp1562850115.png\"\n               },\n               {\n                   \"title\": \"axv1562850115.png\",\n                   \"imgType\": \"passport\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/axv1562850115.png\"\n               },\n               {\n                   \"title\": \"bal1562850115.png\",\n                   \"imgType\": \"license\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/bal1562850115.png\"\n               },\n               {\n                   \"title\": \"uwn1562850115.png\",\n                   \"imgType\": \"license\",\n                   \"link\": \"webimages\\/upload\\/Driver\\/2019_07_11\\/uwn1562850115.png\"\n               }\n           ]\n       }\n}",
           "type": "json"
         }
       ]
