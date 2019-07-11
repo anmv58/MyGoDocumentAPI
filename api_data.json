@@ -7436,7 +7436,7 @@
   },
   {
     "type": "post",
-    "url": "/api/v1/driver/logout.php",
+    "url": "/api/v1/driver/getInfomationByPhone.php",
     "title": "35. Lấy thông tin tài xế bằng SĐT",
     "name": "35__L_y_th_ng_tin_t_i_x__b_ng_S_T",
     "group": "Driver",
@@ -7527,6 +7527,297 @@
         {
           "title": "Success-Example:",
           "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"driverId\": 608722,\n           \"name\": \"Mai An\",\n           \"fullName\": \"Mai An An\",\n           \"service\": [\n               {\n                   \"159\": \"Xe máy\"\n               }\n           ],\n           \"str_service\": \"Xe máy\"\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Driver"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/driver/updateDriverProfile.php",
+    "title": "36. Update Driver Profile",
+    "name": "36__Update_Driver_Profile",
+    "group": "Driver",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "passport[]",
+            "description": "<p>File ảnh chụp chứng minh thư (2 mặt trước sau)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "sign",
+            "description": "<p>File ảnh chụp phù hiệu xe</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>File ảnh đại diện</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "license[]",
+            "description": "<p>File ảnh chụp Giấy phép lái xe (2 mặt trước sau)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "contract[]",
+            "description": "<p>File ảnh chụp hồ sơ hợp đồng</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "driverId",
+            "description": "<p>Mã ID tài xế</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "licence",
+            "description": "<p>Biển số xe đăng kí</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "cityId",
+            "description": "<p>Id Thành phố (bảng Provinces)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "modelId",
+            "description": "<p>ID loại xe (bảng model)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "makeId",
+            "description": "<p>ID hãng xe (bảng make)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "carType[]",
+            "description": "<p>Dịch vụ đăng kí (152 = ship, 156 = ô tô, 159 = xe máy, 16X  = Xe tải)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taxiName",
+            "description": "<p>Tên Hãng taxi</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>null</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Driver"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/driver/getDriverByPhoneWeb.php",
+    "title": "37. Lấy thông tin tài xế bằng SĐT (v2 Web)",
+    "name": "37__L_y_th_ng_tin_t_i_x__b_ng_S_T__v2_Web_",
+    "group": "Driver",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "msisdn",
+            "description": "<p>Số điện thoại tài xế</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"msisdn\": 0982405200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Dữ liệu tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "driverId",
+            "description": "<p>Mã ID của Tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Tên tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fullName",
+            "description": "<p>Họ tên đầy đủ của Tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>Số điện thoại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>Thời gian ghi nhận đăng kí</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>Trạng thái hồ sơ</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>Đường dẫn link ảnh tới ảnh đại diện</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "taxiName",
+            "description": "<p>Tên hãng taxi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>Tỉnh thành đăng kí</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iMakeId",
+            "description": "<p>ID hãng xe</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iModelId",
+            "description": "<p>ID loại xe (thuộc hãng xe)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "vLicencePlate",
+            "description": "<p>Biển số xe đăng kí</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "images",
+            "description": "<p>Các ảnh trong hồ sơ (bằng lái, phù hiệp, Chứng minh thư ...)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"driverId\": \"608670\",\n           \"name\": \"Dat\",\n           \"fullName\": \"Dat \",\n           \"phone\": \"0904309423\",\n           \"createdAt\": \"2019-06-18 18:05:57\",\n           \"state\": \"wait\",\n           \"avatar\": \"\",\n           \"taxiName\": null,\n           \"city\": \"Hà Nội\",\n           \"service\": {\n               \"iMakeId\": \"135\",\n               \"iModelId\": \"1323\",\n               \"vLicencePlate\": \"29D2-11445\"\n           },\n           \"images\": []\n       }\n}",
           "type": "json"
         }
       ]
