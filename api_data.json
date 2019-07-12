@@ -7628,6 +7628,20 @@
             "optional": false,
             "field": "taxiName",
             "description": "<p>Tên Hãng taxi</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Tên tài xế</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "approved",
+            "description": "<p>Trạng thái hồ sơ bao gồm:  'wait','processing','postpone','approved'</p>"
           }
         ]
       }
@@ -7839,6 +7853,13 @@
             "optional": false,
             "field": "link",
             "description": "<p>Đường dẫn đến ảnh</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Note",
+            "optional": false,
+            "field": "NOTE",
+            "description": "<p><i style=\"color: red\">Có thêm 3 loại kích thước cho ảnh, ví dụ nếu ảnh gốc là xxx.jpg thì sẽ có thêm: 200_xxx.jpg; 300_xxx.jpg; 500_xxx.jpg</i></p>"
           }
         ]
       },
