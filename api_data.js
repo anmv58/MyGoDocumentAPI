@@ -4738,13 +4738,20 @@ define({ "api": [
             "optional": false,
             "field": "requestId",
             "description": "<p>Mã yêu cầu</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "requestSessionId",
+            "description": "<p>Phiên tạo request (iUserId + timeStamp (milisecond))</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"requestId\": 75024\n}",
+          "content": "{\n    \"requestId\": 75024\n     \"requestSessionId\": 5213641563595656000\n}",
           "type": "json"
         }
       ]
@@ -4886,13 +4893,20 @@ define({ "api": [
             "optional": false,
             "field": "requestId",
             "description": "<p>Mã yêu cầu</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "requestSessionId",
+            "description": "<p>Phiên tạo request (iUserId + timeStamp (milisecond))</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"requestId\": 75024\n}",
+          "content": "{\n    \"requestId\": 75024\n     \"requestSessionId\": 5213641563595656000\n}",
           "type": "json"
         }
       ]
@@ -5034,13 +5048,20 @@ define({ "api": [
             "optional": false,
             "field": "requestId",
             "description": "<p>Mã yêu cầu</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "requestSessionId",
+            "description": "<p>Phiên tạo request (iUserId + timeStamp (milisecond))</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"requestId\": 75024\n}",
+          "content": "{\n    \"requestId\": 75024\n     \"requestSessionId\": 5213641563595656000\n}",
           "type": "json"
         }
       ]
@@ -6528,13 +6549,20 @@ define({ "api": [
             "optional": false,
             "field": "requestId",
             "description": "<p>Mã yêu cầu</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "requestSessionId",
+            "description": "<p>Phiên tạo request (iUserId + timeStamp (milisecond))</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Body-Example:",
-          "content": "{\n    \"requestId\": 75024\n}",
+          "content": "{\n    \"requestId\": 75024\n     \"requestSessionId\": 5213641563595656000\n}",
           "type": "json"
         }
       ]
