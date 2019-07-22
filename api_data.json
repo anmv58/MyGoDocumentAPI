@@ -919,7 +919,7 @@
             "type": "String",
             "optional": false,
             "field": "requestId",
-            "description": "<p>timestamp + id User (sẽ lược bỏ ko cần truyền lên)</p>"
+            "description": "<p>timestamp + id User</p>"
           },
           {
             "group": "Parameter",
@@ -2454,7 +2454,7 @@
             "type": "String",
             "optional": false,
             "field": "requestId",
-            "description": "<p>timestamp + id User (sẽ lược bỏ ko cần truyền lên)</p>"
+            "description": "<p>timestamp + id User</p>"
           },
           {
             "group": "Parameter",
@@ -6063,6 +6063,13 @@
             "optional": false,
             "field": "driverIncome",
             "description": "<p>Thu nhập lý thuyết của chuyến đi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "realIncome",
+            "description": "<p>Thu nhập thực tế tài xế nhận được</p>"
           }
         ]
       },
@@ -7904,6 +7911,154 @@
   },
   {
     "type": "post",
+    "url": "/api/v1/requestCancelWallet.php",
+    "title": "38. Hủy liên kết ví ViettelPay",
+    "name": "38__H_y_li_n_k_t_v__ViettelPay",
+    "group": "Driver",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json; charset=UTF-8</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n    \"Content-Type\": \"application/json; charset=UTF-8\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "msisdn",
+            "description": "<p>Số điện thoại cần hủy liên kết</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"msisdn\": 0982405200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>dữ liệu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "merchant_msisdn",
+            "description": "<p>Số điện thoại của tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "sender_msisdn",
+            "description": "<p>Số điện thoại cần hủy liên kết</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "merchant_code",
+            "description": "<p>Mã đối tác</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "order_id",
+            "description": "<p>Mã giao dịch</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "version",
+            "description": "<p>2.0 (bên VTP yêu cầu truyền)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pageSuccess",
+            "description": "<p>Link web view khi thành công</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pageError",
+            "description": "<p>Link web view khi thất bại</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "pageResult",
+            "description": "<p>Link web view kết quả</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n    \"message\": \"OK\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Driver"
+  },
+  {
+    "type": "post",
     "url": "/api/v1/driver/logout.php",
     "title": "Đăng xuất",
     "name": "__ng_xu_t",
@@ -7966,7 +8121,7 @@
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n    \"status\": 200,\n    \"message\": \"OK\",\n    \"data\": null\n}",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"merchant_msisdn\": \"0977776451\",\n           \"sender_msisdn\": \"0982405200\",\n           \"merchant_code\": \"MYGO\",\n           \"order_id\": \"MGCANCEL_652E2QNPY58UP16Y1\",\n           \"version\": \"2.0\",\n           \"pageSuccess\": \"https:\\/\\/vtmove-apiv2.ddns.net\\/api\\/v1\\/pageSuccessVTPay.php\",\n           \"pageError\": \"https:\\/\\/vtmove-apiv2.ddns.net\\/api\\/v1\\/pageErrorVTPay.php\",\n           \"pageResult\": \"https:\\/\\/vtmove-apiv2.ddns.net\\/api\\/v1\\/pageResultVtPay.php\"\n       }\n}",
           "type": "json"
         }
       ]
