@@ -6055,7 +6055,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "rawFare",
-            "description": "<p>Tổng cước phí chưa trừ khuyến mãi ( = total_fare + discountFare )</p>"
+            "description": "<p>Tổng cước phí chưa trừ khuyến mãi</p>"
           },
           {
             "group": "Success 200",
@@ -6063,6 +6063,20 @@ define({ "api": [
             "optional": false,
             "field": "driverIncome",
             "description": "<p>Thu nhập lý thuyết của chuyến đi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "payType",
+            "description": "<p>Hình thức thanh toán (tiền mặt or Ví)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "totalFareNum",
+            "description": "<p>Tổng cước phí của đơn sau khuyến mãi</p>"
           },
           {
             "group": "Success 200",
@@ -6076,7 +6090,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Example:",
-          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"fPricePerKM\": 114000,\n           \"discountFare\": 0,\n           \"bonusDriver\": 18600,\n           \"total_fare\": 0,\n           \"total_charge\": 129000,\n           \"earnings\": 104200,\n           \"TotalEarning\": 162000,\n           \"TripDate\": \"24-05-2019\",\n           \"TripCount\": 2,\n           \"AvgRating\": 0,\n           \"CurrencySymbol\": \"VND\",\n           \"page\": 1,\n           \"pageSize\": 30,\n           \"listTrip\": [\n               {\n                   \"iTripId\": 5068,\n                   \"fTripGenerateFare\": 0,\n                   \"bonusDriver\": 4350,\n                   \"fareOfCommision\": 5800,\n                   \"additionalFareForCOD\": 0,\n                   \"additionalFareForPointDelivery\": 0,\n                   \"fareBaseDistance\": 29000,\n                   \"discountFare\": 0,\n                   \"rawFare\": 29000,\n                   \"driverIncome\": 23200,\n                   \"fTipPrice\": 0,\n                   \"fPricePerKM\": 29000,\n                   \"tripType\": \"Km\",\n                   \"tripDistance\": 6.9,\n                   \"tripStatus\": \"Finished\",\n                   \"fRatio_VND\": 1,\n                   \"vRatingU\": 0,\n                   \"vMessageU\": \"\",\n                   \"vName\": \"an\",\n                   \"vLastName\": \"\",\n                   \"vImage\": \"\",\n                   \"trip_code\": \"GNTE7XB3\",\n                   \"type\": \"Ride\",\n                   \"requestTime\": \"2019-05-24 15:02:16\",\n                   \"vehicleTypeId\": 159,\n                   \"startLat\": \"21.0067\",\n                   \"startLong\": \"105.846\",\n                   \"startAddress\": \"20 Ngõ 30 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n                   \"endLat\": \"20.9866676\",\n                   \"endLong\": \"105.7835446\",\n                   \"endAddress\": \"66 LK6A, Hà Đông, Hà Nội, Việt Nam\",\n                   \"last_progress_trip\": \"Finished\",\n                   \"last_progress_trip_code\": \"PROCESS_TRIP_05\",\n                   \"last_progress_trip_name\": \"Thành công\"\n               }\n           ]\n       }\n}",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"fPricePerKM\": 114000,\n           \"discountFare\": 0,\n           \"bonusDriver\": 18600,\n           \"total_fare\": 0,\n           \"total_charge\": 129000,\n           \"earnings\": 104200,\n           \"TotalEarning\": 162000,\n           \"TripDate\": \"24-05-2019\",\n           \"TripCount\": 2,\n           \"AvgRating\": 0,\n           \"CurrencySymbol\": \"VND\",\n           \"page\": 1,\n           \"pageSize\": 30,\n           \"listTrip\": [\n               {\n                   \"iTripId\": 5068,\n                   \"fTripGenerateFare\": 0,\n                   \"bonusDriver\": 4350,\n                   \"fareOfCommision\": 5800,\n                   \"additionalFareForCOD\": 0,\n                   \"additionalFareForPointDelivery\": 0,\n                   \"fareBaseDistance\": 29000,\n                   \"discountFare\": 0,\n                   \"rawFare\": 29000,\n                   \"driverIncome\": 23200,\n                   \"fTipPrice\": 0,\n                   \"fPricePerKM\": 29000,\n                   \"tripType\": \"Km\",\n                   \"tripDistance\": 6.9,\n                   \"tripStatus\": \"Finished\",\n                   \"fRatio_VND\": 1,\n                   \"vRatingU\": 0,\n                   \"vMessageU\": \"\",\n                   \"vName\": \"an\",\n                   \"vLastName\": \"\",\n                   \"vImage\": \"\",\n                   \"trip_code\": \"GNTE7XB3\",\n                   \"type\": \"Ride\",\n                   \"requestTime\": \"2019-05-24 15:02:16\",\n                   \"vehicleTypeId\": 159,\n                   \"startLat\": \"21.0067\",\n                   \"startLong\": \"105.846\",\n                   \"startAddress\": \"20 Ngõ 30 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n                   \"endLat\": \"20.9866676\",\n                   \"endLong\": \"105.7835446\",\n                   \"endAddress\": \"66 LK6A, Hà Đông, Hà Nội, Việt Nam\",\n                   \"last_progress_trip\": \"Finished\",\n                   \"last_progress_trip_code\": \"PROCESS_TRIP_05\",\n                   \"last_progress_trip_name\": \"Thành công\"\n                   \"payType\": \"Cash\",\n                   \"totalFareNum\": 33000,\n                   \"realIncome\": 31350\n               }\n           ]\n       }\n}",
           "type": "json"
         }
       ]
