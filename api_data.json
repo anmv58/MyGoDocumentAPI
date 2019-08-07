@@ -8142,5 +8142,891 @@
     },
     "filename": "api/index.js",
     "groupTitle": "Driver"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/customer/send_request_driver_waiting_ship.php",
+    "title": "1. Tạo đơn chờ giao hàng (EVTP)",
+    "name": "1__T_o___n_ch__giao_h_ng",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n    \"Content-Type\": application/json\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Array/Json",
+            "optional": false,
+            "field": "evtpInfo",
+            "description": "<p>Thông tin đơn Evtp</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"distance\": 13326, \n       \"stateName\": \"Hà Nội\",\n       \"countryName\": \"Vietnam\",\n       \"selectedCarTypeID\": 152,\n       \"PickUpAddress\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n       \"PickUpLongitude\": 105.847476,\n       \"PickUpLatitude\": 21.007541,\n       \"DestAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n       \"DestLatitude\": 21.0873555,\n       \"DestLongitude\": 105.8094916,\n       \"listReceivePoints\": [\n           {\n               \"receiveAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"receiveUserName\": \"A Định\",\n               \"receiveUserPhone\": \"0389595186\",\n               \"note\": \"\",\n               \"latitude\": 21.0873555,\n               \"longitude\": 105.8094916,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\",\n               \"evtpInfo\": \"{\\\"userId\\\":123456,\\\"id_buugui\\\":\\\"417046264\\\",\\\"ma_phieugui\\\":\\\"1576322465821\\\",\\\"address\\\":{\\\"detail\\\":\\\"26, PH\\u01AF\\u1EDCNG \\u0110\\u1ED2NG NH\\u00C2N, QU\\u1EACN HAI B\\u00C0 TR\\u01AFNG, H\\u00E0 N\\u1ED9i\\\",\\\"districtId\\\":\\\"1\\\",\\\"precintId\\\":\\\"7522\\\",\\\"provinceCode\\\":\\\"HNI\\\"},\\\"recipient\\\":{\\\"name\\\":\\\"Nguy\\u1EC5n Minh An\\\",\\\"phone\\\":\\\"0905123456\\\"},\\\"note\\\":\\\"Test\\\",\\\"status\\\":\\\"6\\\",\\\"returnCode\\\":\\\"99\\\"}\"\n           },\n           {\n               \"receiveAddress\": \"66LK6A Nguyễn Văn Lộc, Hà Đông, Hà Nội\",\n               \"receiveUserName\": \"A An\",\n               \"receiveUserPhone\": \"0982405200\",\n               \"note\": \"hello my boy\",\n               \"latitude\": 20.9857383,\n               \"longitude\": 105.780868,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\",\n               \"evtpInfo\": \"{\\r\\n  \\\"userId\\\": 123456,\\r\\n  \\\"id_buugui\\\": \\\"417046264\\\",\\r\\n  \\\"ma_phieugui\\\": \\\"1576322465821\\\",\\r\\n  \\\"address\\\": {\\r\\n    \\\"detail\\\": \\\"26, PH\\u01AF\\u1EDCNG \\u0110\\u1ED2NG NH\\u00C2N, QU\\u1EACN HAI B\\u00C0 TR\\u01AFNG, H\\u00E0 N\\u1ED9i\\\"\\r\\n  },\\r\\n  \\\"recipient\\\": {\\r\\n    \\\"name\\\": \\\"Nguy\\u1EC5n Minh An\\\",\\r\\n    \\\"phone\\\": \\\"0905123456\\\"\\r\\n  }\\r\\n}\"\n           }\n       ],\n       \"payType\": 1,\n       \"requestId\": \"55692011564711053\",\n       \"isVtp\": 1,\n       \"shipType\": 1,\n       \"feePerReceiverPoint\": 12000\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Đang tìm tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"Đang tìm tài xế\",\n       \"data\": {\n           \"iRequestId\": 120433\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/cancel_cab_request_waiting_ship.php",
+    "title": "2. Hủy yêu cầu giao hàng (EVTP)",
+    "name": "2__H_y_y_u_c_u_giao_h_ng__EVTP_",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cancel_reason",
+            "description": "<p>Lý do hủy yêu cầu</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "RequestId",
+            "description": "<p>Mã yêu cầu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"cancel_reason\": Không đi chơi nữa\n    \"RequestId\": 123456 \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Đang tìm tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"Hủy yêu cầu thành công\",\n       \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/ship/generateTrip.php",
+    "title": "3. Tài xế xác nhận đơn giao hàng (EVTP)",
+    "name": "3__T_i_x__x_c_nh_n___n_giao_h_ng__EVTP_",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n    \"Content-Type\": application/json\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "requestId",
+            "description": "<p>Mã yêu cầu cần hủy</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "requestSessionId",
+            "description": "<p>Mã request Session</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"requestId\": 118934\n    \"requestSessionId\": 111111 \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Đang tìm tài xế</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": OK,\n       \"data\": {\n           \"iTripId\": 4852,\n           \"tripCode\": GNTHM93A,\n           \"tEndLat\": 20.9866676,\n           \"tEndLong\": 105.7835446,\n           \"tDaddress\": 66 LK6A, Hà Đông, Hà Nội, Việt Nam,\n           \"PAppVersion\": 0,\n           \"eFareType\": Regular,\n           \"APP_TYPE\": Ride\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/load_available_waiting_ship_bill.php",
+    "title": "4. Tài xế load các đơn chờ xung quanh (EVTP)",
+    "name": "4__T_i_x__load_c_c___n_ch__xung_quanh__EVTP_",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>null</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dRequestDate",
+            "description": "<p>ngày yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_sameprice",
+            "description": "<p>(= 1 nếu là đơn đồng giá, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_vtp",
+            "description": "<p>(= 1 nếu là đơn evtp, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fDiscount",
+            "description": "<p>Khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fFare",
+            "description": "<p>Giá sau khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fdistance",
+            "description": "<p>Khoảng cách</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "paytype",
+            "description": "<p>(= 1 nếu là  tiền mặt, = 2 nếu là ví)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "feeCod",
+            "description": "<p>Giá trị COD (thu hộ)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "totalDeliveryPoint",
+            "description": "<p>Tổng số điểm giao của đơn</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": [\n           {\n               \"iRequestId\": \"120452\",\n               \"dRequestDate\": \"2019-08-07 10:09:00\",\n               \"tSourceAddresss\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n               \"tDestAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"is_sameprice\": \"1\",\n               \"is_vtp\": \"1\",\n               \"fDiscount\": \"0\",\n               \"fFare\": \"24000\",\n               \"fdistance\": \"13326\",\n               \"paytype\": \"1\",\n               \"feeCod\": \"0\",\n               \"totalDeliveryPoint\": \"2\"\n           },\n           {\n               \"iRequestId\": \"120433\",\n               \"dRequestDate\": \"2019-08-07 09:15:32\",\n               \"tSourceAddresss\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n               \"tDestAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"is_sameprice\": \"1\",\n               \"is_vtp\": \"1\",\n               \"fDiscount\": \"0\",\n               \"fFare\": \"24000\",\n               \"fdistance\": \"13326\",\n               \"paytype\": \"1\",\n               \"feeCod\": \"0\",\n               \"totalDeliveryPoint\": \"2\"\n           },\n           {\n               \"iRequestId\": \"120374\",\n               \"dRequestDate\": \"2019-08-06 18:51:17\",\n               \"tSourceAddresss\": \"18/30 Tạ Quang Bửu\",\n               \"tDestAddress\": \"SỐ 2 - PHƯỜNG HÀNG BUỒM - QUẬN HOÀN KIẾM - HÀ NỘI\",\n               \"is_sameprice\": \"1\",\n               \"is_vtp\": \"1\",\n               \"fDiscount\": \"0\",\n               \"fFare\": \"60000\",\n               \"fdistance\": \"0\",\n               \"paytype\": \"1\",\n               \"feeCod\": \"0\",\n               \"totalDeliveryPoint\": \"6\"\n           }    \n       ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/ship/generateTrip.php",
+    "title": "5. Tài xế lấy chi tiết yêu cầu đơn chờ",
+    "name": "5__T_i_x__l_y_chi_ti_t_y_u_c_u___n_ch_",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "rtdId",
+            "description": "<p>Mã ID yêu cầu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{    \n    \"rtdId\": 118893\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>null</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dRequestDate",
+            "description": "<p>ngày yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_sameprice",
+            "description": "<p>(= 1 nếu là đơn đồng giá, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_vtp",
+            "description": "<p>(= 1 nếu là đơn evtp, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fDiscount",
+            "description": "<p>Khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fFare",
+            "description": "<p>Giá sau khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fdistance",
+            "description": "<p>Khoảng cách</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "paytype",
+            "description": "<p>(= 1 nếu là  tiền mặt, = 2 nếu là ví)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "feeCod",
+            "description": "<p>Giá trị COD (thu hộ)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "totalDeliveryPoint",
+            "description": "<p>Tổng số điểm giao của đơn</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripPointOrder",
+            "description": "<p>Thứ tự của điểm giao trong danh sách</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>Trạng thái của điểm giao (tương đương với trạng thái của đơn EVTP)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "evtpInfo",
+            "description": "<p>Thông tin của đơn Evtp</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": {\n           \"requestInfo\": {\n               \"iRequestId\": \"120463\",\n               \"requestCode\": \"55691791565148956\",\n               \"dRequestDate\": \"2019-08-07 10:35:39\",\n               \"iUserId\": \"5569179\",\n               \"iVehicleTypeId\": \"152\",\n               \"tSourceAddresss\": \"18/30 Tạ Quang Bửu\",\n               \"tDestAddress\": \"128 Trung Hòa,   Yên Hoà,   Cầu Giấy,   Hà Nội,   Việt Nam,   PHƯỜNG YÊN HÒA,   QUẬN CẦU GIẤY,   Hà Nội,  PHƯỜNG YÊN HÒA,  QUẬN CẦU GIẤY,  Hà Nội, PHƯỜNG YÊN HÒA, QUẬN CẦU GIẤY, Hà Nội\",\n               \"driver_id_auto\": \"607870,608729,608774\",\n               \"fFare\": \"30000\",\n               \"eStatus\": \"Accept\",\n               \"iTripId\": \"9827\",\n               \"fPricePerKM\": \"0\",\n               \"receiverName\": null,\n               \"receiverPhone\": null,\n               \"desOfGood\": null,\n               \"payType\": \"1\",\n               \"noteForDriver\": \"aaaaaaaaaaaaaaaaaaaa\",\n               \"fDiscount\": \"0\",\n               \"fdistance\": \"0\",\n               \"noteOfGood\": null,\n               \"cancel_reason\": null,\n               \"fTipForDeliver\": \"0\",\n               \"fareOfCommision\": \"1500\",\n               \"fareBaseDistance\": \"0\",\n               \"additionalFareForCOD\": \"0\",\n               \"additionalFareForPointDelivery\": \"0\",\n               \"pickUpLatitude\": \"21.0075\",\n               \"pickUpLongitude\": \"105.847\",\n               \"discount_fare\": \"0\",\n               \"driver_income\": \"28500\",\n               \"bonus_for_driver\": \"0\",\n               \"raw_fare\": \"30000\",\n               \"truckDetailId\": \"0\",\n               \"promoId\": \"0\",\n               \"promoCode\": null,\n               \"acceptTime\": \"2019-08-07 10:35:54\",\n               \"cityCode\": \"HANOI\",\n               \"is_vtp\": \"1\",\n               \"is_sameprice\": \"1\"\n           },\n           \"receivePointInfo\": [\n               {\n                   \"tripPointsId\": \"2620189\",\n                   \"rtdId\": \"120463\",\n                   \"iTripId\": \"9827\",\n                   \"tripPointOrder\": \"1\",\n                   \"receiveAddress\": \"Số 2, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, Hà Nội, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, Hà Nội, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, Hà Nội\",\n                   \"receiveUserName\": \"Đông Test 2\",\n                   \"receiveUserPhone\": \"0396698882\",\n                   \"note\": \"\",\n                   \"latitude\": \"-1\",\n                   \"longitude\": \"-1\",\n                   \"updateTime\": \"2019-08-07 10:40:46\",\n                   \"state\": \"1\",\n                   \"feeCod\": \"100000\",\n                   \"parcelName\": \"kh.vtp\",\n                   \"parcelPrice\": \"0\",\n                   \"reason\": null,\n                   \"evtpInfo\": \"{\\\\\\\"address\\\\\\\":{\\\\\\\"detail\\\\\\\":\\\\\\\"SỐ 2, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, HÀ NỘI, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, HÀ NỘI, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, HÀ NỘI - PHƯỜNG VĨNH TUY - QUẬN HAI BÀ TRƯNG - HÀ NỘI\\\\\\\",\\\\\\\"districtId\\\\\\\":1,\\\\\\\"precintId\\\\\\\":7507,\\\\\\\"provinceCode\\\\\\\":\\\\\\\"HNI\\\\\\\"},\\\\\\\"recipient\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"Đông Test 2\\\\\\\",\\\\\\\"phone\\\\\\\":\\\\\\\"0396698882\\\\\\\"},\\\\\\\"note\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"ma_phieugui\\\\\\\":\\\\\\\"1575562817406\\\\\\\",\\\\\\\"id_buugui\\\\\\\":\\\\\\\"421313869\\\\\\\",\\\\\\\"returnCode\\\\\\\":\\\\\\\"30\\\\\\\",\\\\\\\"status\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"userId\\\\\\\":567258}\"\n               },\n               {\n                   \"tripPointsId\": \"2620190\",\n                   \"rtdId\": \"120463\",\n                   \"iTripId\": \"9827\",\n                   \"tripPointOrder\": \"2\",\n                   \"receiveAddress\": \"37 Đường Lê Văn Lương,  Nhân Chính,  Thanh Xuân,  Hà Nội,  Việt Nam,  PHƯỜNG NHÂN CHÍNH,  QUẬN THANH XUÂN,  Hà Nội, PHƯỜNG NHÂN CHÍNH, QUẬN THANH XUÂN, Hà Nội\",\n                   \"receiveUserName\": \"A Việt\",\n                   \"receiveUserPhone\": \"0868993921\",\n                   \"note\": \"\",\n                   \"latitude\": \"-1\",\n                   \"longitude\": \"-1\",\n                   \"updateTime\": \"2019-08-07 10:40:48\",\n                   \"state\": \"1\",\n                   \"feeCod\": \"200000\",\n                   \"parcelName\": \"kh.vtp\",\n                   \"parcelPrice\": \"0\",\n                   \"reason\": null,\n                   \"evtpInfo\": \"{\\\\\\\"address\\\\\\\":{\\\\\\\"detail\\\\\\\":\\\\\\\"37 ĐƯỜNG LÊ VĂN LƯƠNG,  NHÂN CHÍNH,  THANH XUÂN,  HÀ NỘI,  VIỆT NAM,  PHƯỜNG NHÂN CHÍNH,  QUẬN THANH XUÂN,  HÀ NỘI, PHƯỜNG NHÂN CHÍNH, QUẬN THANH XUÂN, HÀ NỘI - PHƯỜNG NHÂN CHÍNH - QUẬN THANH XUÂN - HÀ NỘI\\\\\\\",\\\\\\\"districtId\\\\\\\":4,\\\\\\\"precintId\\\\\\\":4621,\\\\\\\"provinceCode\\\\\\\":\\\\\\\"HNI\\\\\\\"},\\\\\\\"recipient\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"A Việt\\\\\\\",\\\\\\\"phone\\\\\\\":\\\\\\\"0868993921\\\\\\\"},\\\\\\\"note\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"ma_phieugui\\\\\\\":\\\\\\\"1575970825924\\\\\\\",\\\\\\\"id_buugui\\\\\\\":\\\\\\\"421315562\\\\\\\",\\\\\\\"returnCode\\\\\\\":\\\\\\\"30\\\\\\\",\\\\\\\"status\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"userId\\\\\\\":567258}\"\n               },\n               {\n                   \"tripPointsId\": \"2620191\",\n                   \"rtdId\": \"120463\",\n                   \"iTripId\": \"9827\",\n                   \"tripPointOrder\": \"3\",\n                   \"receiveAddress\": \"128 Trung Hòa,   Yên Hoà,   Cầu Giấy,   Hà Nội,   Việt Nam,   PHƯỜNG YÊN HÒA,   QUẬN CẦU GIẤY,   Hà Nội,  PHƯỜNG YÊN HÒA,  QUẬN CẦU GIẤY,  Hà Nội, PHƯỜNG YÊN HÒA, QUẬN CẦU GIẤY, Hà Nội\",\n                   \"receiveUserName\": \"A Hoàng Anh\",\n                   \"receiveUserPhone\": \"0345957888\",\n                   \"note\": \"\",\n                   \"latitude\": \"-1\",\n                   \"longitude\": \"-1\",\n                   \"updateTime\": \"2019-08-07 10:40:51\",\n                   \"state\": \"1\",\n                   \"feeCod\": \"0\",\n                   \"parcelName\": \"kh.vtp\",\n                   \"parcelPrice\": \"0\",\n                   \"reason\": null,\n                   \"evtpInfo\": \"{\\\\\\\"address\\\\\\\":{\\\\\\\"detail\\\\\\\":\\\\\\\"128 TRUNG HÒA,   YÊN HOÀ,   CẦU GIẤY,   HÀ NỘI,   VIỆT NAM,   PHƯỜNG YÊN HÒA,   QUẬN CẦU GIẤY,   HÀ NỘI,  PHƯỜNG YÊN HÒA,  QUẬN CẦU GIẤY,  HÀ NỘI, PHƯỜNG YÊN HÒA, QUẬN CẦU GIẤY, HÀ NỘI - PHƯỜNG YÊN HÒA - QUẬN CẦU GIẤY - HÀ NỘI\\\\\\\",\\\\\\\"districtId\\\\\\\":5,\\\\\\\"precintId\\\\\\\":10769,\\\\\\\"provinceCode\\\\\\\":\\\\\\\"HNI\\\\\\\"},\\\\\\\"recipient\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"A Hoàng Anh\\\\\\\",\\\\\\\"phone\\\\\\\":\\\\\\\"0345957888\\\\\\\"},\\\\\\\"note\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"ma_phieugui\\\\\\\":\\\\\\\"1575798706760\\\\\\\",\\\\\\\"id_buugui\\\\\\\":\\\\\\\"421314954\\\\\\\",\\\\\\\"returnCode\\\\\\\":\\\\\\\"30\\\\\\\",\\\\\\\"status\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"userId\\\\\\\":567258}\"\n               }\n           ]\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/ship/generateTrip.php",
+    "title": "6. Khách hàng lấy danh sách đơn chờ (Yêu cầu chưa có tài xế nhận)",
+    "name": "6__Kh_ch_h_ng_l_y_danh_s_ch___n_ch___Y_u_c_u_ch_a_c__t_i_x__nh_n_",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Không cần truyền Param lên",
+          "content": "{    \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>null</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dRequestDate",
+            "description": "<p>ngày yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_sameprice",
+            "description": "<p>(= 1 nếu là đơn đồng giá, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_vtp",
+            "description": "<p>(= 1 nếu là đơn evtp, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fDiscount",
+            "description": "<p>Khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fFare",
+            "description": "<p>Giá sau khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fdistance",
+            "description": "<p>Khoảng cách</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "paytype",
+            "description": "<p>(= 1 nếu là  tiền mặt, = 2 nếu là ví)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "feeCod",
+            "description": "<p>Giá trị COD (thu hộ)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "totalDeliveryPoint",
+            "description": "<p>Tổng số điểm giao của đơn</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": [\n           {\n               \"iRequestId\": \"120380\",\n               \"dRequestDate\": \"2019-08-06 18:54:10\",\n               \"tSourceAddresss\": \"72 Phố Tôn Đức Thắng\",\n               \"tDestAddress\": \"SỐ 2 - PHƯỜNG HÀNG BUỒM - QUẬN HOÀN KIẾM - HÀ NỘI\",\n               \"is_sameprice\": \"1\",\n               \"is_vtp\": \"1\",\n               \"fDiscount\": \"0\",\n               \"fFare\": \"24000\",\n               \"fdistance\": \"0\",\n               \"paytype\": \"1\",\n               \"feeCod\": \"2000000\",\n               \"totalDeliveryPoint\": \"4\"\n           },\n           {\n               \"iRequestId\": \"120361\",\n               \"dRequestDate\": \"2019-08-06 18:27:44\",\n               \"tSourceAddresss\": \"18/30 Tạ Quang Bửu\",\n               \"tDestAddress\": \"SỐ 2 - PHƯỜNG HÀNG BUỒM - QUẬN HOÀN KIẾM - HÀ NỘI\",\n               \"is_sameprice\": \"1\",\n               \"is_vtp\": \"1\",\n               \"fDiscount\": \"0\",\n               \"fFare\": \"6000\",\n               \"fdistance\": \"0\",\n               \"paytype\": \"1\",\n               \"feeCod\": \"0\",\n               \"totalDeliveryPoint\": \"1\"\n           }\n       ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/get_detail_waiting_ship_bill.php",
+    "title": "7. Khách hàng lấy chi tiết đơn chờ (EVTP)",
+    "name": "7__Kh_ch_h_ng_l_y_chi_ti_t___n_ch___EVTP_",
+    "group": "EVTP_waiting_bill",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "rtdId",
+            "description": "<p>Mã Request ID của yêu cầu</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example:",
+          "content": "{\n    \"rtdId\": 120463\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>null</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "iRequestId",
+            "description": "<p>mã RequestId của yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dRequestDate",
+            "description": "<p>ngày yêu cầu</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_sameprice",
+            "description": "<p>(= 1 nếu là đơn đồng giá, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "is_vtp",
+            "description": "<p>(= 1 nếu là đơn evtp, = 0 nếu không phải đơn đồng giá)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fDiscount",
+            "description": "<p>Khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fFare",
+            "description": "<p>Giá sau khuyến mãi</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fdistance",
+            "description": "<p>Khoảng cách</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "paytype",
+            "description": "<p>(= 1 nếu là  tiền mặt, = 2 nếu là ví)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "feeCod",
+            "description": "<p>Giá trị COD (thu hộ)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "totalDeliveryPoint",
+            "description": "<p>Tổng số điểm giao của đơn</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripPointOrder",
+            "description": "<p>Thứ tự của điểm giao trong danh sách</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>Trạng thái của điểm giao (tương đương với trạng thái của đơn EVTP)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "evtpInfo",
+            "description": "<p>Thông tin của đơn Evtp</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": {\n           \"requestInfo\": {\n               \"iRequestId\": \"120463\",\n               \"requestCode\": \"55691791565148956\",\n               \"dRequestDate\": \"2019-08-07 10:35:39\",\n               \"iUserId\": \"5569179\",\n               \"iVehicleTypeId\": \"152\",\n               \"tSourceAddresss\": \"18/30 Tạ Quang Bửu\",\n               \"tDestAddress\": \"128 Trung Hòa,   Yên Hoà,   Cầu Giấy,   Hà Nội,   Việt Nam,   PHƯỜNG YÊN HÒA,   QUẬN CẦU GIẤY,   Hà Nội,  PHƯỜNG YÊN HÒA,  QUẬN CẦU GIẤY,  Hà Nội, PHƯỜNG YÊN HÒA, QUẬN CẦU GIẤY, Hà Nội\",\n               \"driver_id_auto\": \"607870,608729,608774\",\n               \"fFare\": \"30000\",\n               \"eStatus\": \"Accept\",\n               \"iTripId\": \"9827\",\n               \"fPricePerKM\": \"0\",\n               \"receiverName\": null,\n               \"receiverPhone\": null,\n               \"desOfGood\": null,\n               \"payType\": \"1\",\n               \"noteForDriver\": \"aaaaaaaaaaaaaaaaaaaa\",\n               \"fDiscount\": \"0\",\n               \"fdistance\": \"0\",\n               \"noteOfGood\": null,\n               \"cancel_reason\": null,\n               \"fTipForDeliver\": \"0\",\n               \"fareOfCommision\": \"1500\",\n               \"fareBaseDistance\": \"0\",\n               \"additionalFareForCOD\": \"0\",\n               \"additionalFareForPointDelivery\": \"0\",\n               \"pickUpLatitude\": \"21.0075\",\n               \"pickUpLongitude\": \"105.847\",\n               \"discount_fare\": \"0\",\n               \"driver_income\": \"28500\",\n               \"bonus_for_driver\": \"0\",\n               \"raw_fare\": \"30000\",\n               \"truckDetailId\": \"0\",\n               \"promoId\": \"0\",\n               \"promoCode\": null,\n               \"acceptTime\": \"2019-08-07 10:35:54\",\n               \"cityCode\": \"HANOI\",\n               \"is_vtp\": \"1\",\n               \"is_sameprice\": \"1\"\n           },\n           \"receivePointInfo\": [\n               {\n                   \"tripPointsId\": \"2620189\",\n                   \"rtdId\": \"120463\",\n                   \"iTripId\": \"9827\",\n                   \"tripPointOrder\": \"1\",\n                   \"receiveAddress\": \"Số 2, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, Hà Nội, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, Hà Nội, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, Hà Nội\",\n                   \"receiveUserName\": \"Đông Test 2\",\n                   \"receiveUserPhone\": \"0396698882\",\n                   \"note\": \"\",\n                   \"latitude\": \"-1\",\n                   \"longitude\": \"-1\",\n                   \"updateTime\": \"2019-08-07 10:40:46\",\n                   \"state\": \"1\",\n                   \"feeCod\": \"100000\",\n                   \"parcelName\": \"kh.vtp\",\n                   \"parcelPrice\": \"0\",\n                   \"reason\": null,\n                   \"evtpInfo\": \"{\\\\\\\"address\\\\\\\":{\\\\\\\"detail\\\\\\\":\\\\\\\"SỐ 2, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, HÀ NỘI, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, HÀ NỘI, PHƯỜNG VĨNH TUY, QUẬN HAI BÀ TRƯNG, HÀ NỘI - PHƯỜNG VĨNH TUY - QUẬN HAI BÀ TRƯNG - HÀ NỘI\\\\\\\",\\\\\\\"districtId\\\\\\\":1,\\\\\\\"precintId\\\\\\\":7507,\\\\\\\"provinceCode\\\\\\\":\\\\\\\"HNI\\\\\\\"},\\\\\\\"recipient\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"Đông Test 2\\\\\\\",\\\\\\\"phone\\\\\\\":\\\\\\\"0396698882\\\\\\\"},\\\\\\\"note\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"ma_phieugui\\\\\\\":\\\\\\\"1575562817406\\\\\\\",\\\\\\\"id_buugui\\\\\\\":\\\\\\\"421313869\\\\\\\",\\\\\\\"returnCode\\\\\\\":\\\\\\\"30\\\\\\\",\\\\\\\"status\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"userId\\\\\\\":567258}\"\n               },\n               {\n                   \"tripPointsId\": \"2620190\",\n                   \"rtdId\": \"120463\",\n                   \"iTripId\": \"9827\",\n                   \"tripPointOrder\": \"2\",\n                   \"receiveAddress\": \"37 Đường Lê Văn Lương,  Nhân Chính,  Thanh Xuân,  Hà Nội,  Việt Nam,  PHƯỜNG NHÂN CHÍNH,  QUẬN THANH XUÂN,  Hà Nội, PHƯỜNG NHÂN CHÍNH, QUẬN THANH XUÂN, Hà Nội\",\n                   \"receiveUserName\": \"A Việt\",\n                   \"receiveUserPhone\": \"0868993921\",\n                   \"note\": \"\",\n                   \"latitude\": \"-1\",\n                   \"longitude\": \"-1\",\n                   \"updateTime\": \"2019-08-07 10:40:48\",\n                   \"state\": \"1\",\n                   \"feeCod\": \"200000\",\n                   \"parcelName\": \"kh.vtp\",\n                   \"parcelPrice\": \"0\",\n                   \"reason\": null,\n                   \"evtpInfo\": \"{\\\\\\\"address\\\\\\\":{\\\\\\\"detail\\\\\\\":\\\\\\\"37 ĐƯỜNG LÊ VĂN LƯƠNG,  NHÂN CHÍNH,  THANH XUÂN,  HÀ NỘI,  VIỆT NAM,  PHƯỜNG NHÂN CHÍNH,  QUẬN THANH XUÂN,  HÀ NỘI, PHƯỜNG NHÂN CHÍNH, QUẬN THANH XUÂN, HÀ NỘI - PHƯỜNG NHÂN CHÍNH - QUẬN THANH XUÂN - HÀ NỘI\\\\\\\",\\\\\\\"districtId\\\\\\\":4,\\\\\\\"precintId\\\\\\\":4621,\\\\\\\"provinceCode\\\\\\\":\\\\\\\"HNI\\\\\\\"},\\\\\\\"recipient\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"A Việt\\\\\\\",\\\\\\\"phone\\\\\\\":\\\\\\\"0868993921\\\\\\\"},\\\\\\\"note\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"ma_phieugui\\\\\\\":\\\\\\\"1575970825924\\\\\\\",\\\\\\\"id_buugui\\\\\\\":\\\\\\\"421315562\\\\\\\",\\\\\\\"returnCode\\\\\\\":\\\\\\\"30\\\\\\\",\\\\\\\"status\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"userId\\\\\\\":567258}\"\n               }\n           ]\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "EVTP_waiting_bill"
   }
 ]
