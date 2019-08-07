@@ -543,7 +543,7 @@
             "type": "String",
             "optional": false,
             "field": "promotion_code",
-            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
+            "description": "<p>Mã Khuyến Mãi</p>"
           },
           {
             "group": "Parameter",
@@ -961,7 +961,7 @@
             "type": "String",
             "optional": false,
             "field": "promotion_code",
-            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
+            "description": "<p>Mã Khuyến Mãi</p>"
           },
           {
             "group": "Parameter",
@@ -1226,7 +1226,7 @@
             "type": "String",
             "optional": false,
             "field": "promotion_code",
-            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
+            "description": "<p>Mã Khuyến Mãi</p>"
           },
           {
             "group": "Parameter",
@@ -2496,7 +2496,7 @@
             "type": "String",
             "optional": false,
             "field": "promotion_code",
-            "description": "<p>Mã Khuyến Mãi (hiện tại chỉ có VT10 và VT10K)</p>"
+            "description": "<p>Mã Khuyến Mãi</p>"
           },
           {
             "group": "Parameter",
@@ -8183,10 +8183,192 @@
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "requestId",
+            "description": "<p>timeStamp + userId (không cần sử dụng khi truyền lên, sẽ bỏ đi)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "distance",
+            "description": "<p>Tổng quãng đường của chuyến đi</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "driverIds",
+            "description": "<p>Danh sách các ID của Tài xế sẽ nhận yêu cầu đơn mới (đang sai kiểu)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "stateName",
+            "description": "<p>Tên tỉnh thành</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "countryName",
+            "description": "<p>Tên quốc gia</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "SelectedCarTypeID",
+            "description": "<p>Mã dịch vụ (ship/truck)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "PickUpAddress",
+            "description": "<p>Địa chỉ đón</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "PickUpLongitude",
+            "description": "<p>Kinh độ điểm đón</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "PickUpLatitude",
+            "description": "<p>Vĩ độ điểm đón</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "DestAddress",
+            "description": "<p>Địa chỉ điểm cuối</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "DestLongitude",
+            "description": "<p>Kinh độ điểm cuối</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "DestLatitude",
+            "description": "<p>Vĩ độ điểm cuối</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "json",
+            "optional": false,
+            "field": "listReceivePoint",
+            "description": "<p>Danh sách các điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "receiveAddress",
+            "description": "<p>Địa chỉ điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Stirng",
+            "optional": false,
+            "field": "receiveUserName",
+            "description": "<p>Tên người nhận ở điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "receiveUserPhone",
+            "description": "<p>Điện thoại người nhận ở điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "note",
+            "description": "<p>Ghi chú cho điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "latitude",
+            "description": "<p>Vĩ độ điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "longitude",
+            "description": "<p>Kinh độ điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "feeCod",
+            "description": "<p>Tiền thu hộ COD</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parcelName",
+            "description": "<p>Tên hàng hóa</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parcelPrice",
+            "description": "<p>Giá trị hàng hóa (sẽ bỏ không sử dụng)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "payType",
+            "description": "<p>1 nếu thanh toán tiền mặt; 2 nếu thanh toán bằng ví</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "shipType",
+            "description": "<p>0 nếu ship 1-1; 1 nếu ship 1-N đồng giá</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "feePerReceiverPoint",
+            "description": "<p>Cước phí trên mỗi điểm giao nếu lựa chọn dịch vụ đồng giá (trong khoảng 6000-20000)</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Array/Json",
             "optional": false,
             "field": "evtpInfo",
             "description": "<p>Thông tin đơn Evtp</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "isVtp",
+            "description": "<p>(= 1 nếu là đơn EVTP, = 0 nếu không phải là đơn EVTP)</p>"
           }
         ]
       },
@@ -8556,9 +8738,9 @@
   },
   {
     "type": "get",
-    "url": "/api/v1/ship/generateTrip.php",
-    "title": "5. Tài xế lấy chi tiết yêu cầu đơn chờ",
-    "name": "5__T_i_x__l_y_chi_ti_t_y_u_c_u___n_ch_",
+    "url": "/api/v1/get_detail_waiting_ship_bill.php",
+    "title": "5. Tài xế lấy chi tiết yêu cầu đơn chờ (EVTP)",
+    "name": "5__T_i_x__l_y_chi_ti_t_y_u_c_u___n_ch___EVTP_",
     "group": "EVTP_waiting_bill",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
     "version": "1.0.0",
@@ -8725,7 +8907,7 @@
   },
   {
     "type": "get",
-    "url": "/api/v1/ship/generateTrip.php",
+    "url": "/api/v1/customer/get_list_waiting_ship_bills.php",
     "title": "6. Khách hàng lấy danh sách đơn chờ (Yêu cầu chưa có tài xế nhận)",
     "name": "6__Kh_ch_h_ng_l_y_danh_s_ch___n_ch___Y_u_c_u_ch_a_c__t_i_x__nh_n_",
     "group": "EVTP_waiting_bill",
