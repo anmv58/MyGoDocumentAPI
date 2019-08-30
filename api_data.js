@@ -3376,6 +3376,578 @@ define({ "api": [
     "groupTitle": "Customer"
   },
   {
+    "type": "get",
+    "url": "/api/v1/customer/estimate_fare.php",
+    "title": "24. Tính cước phí dịch vụ ship Giao nhanh và Hỏa tốc",
+    "name": "24__T_nh_c__c_ph__d_ch_v__ship_Giao_nhanh_v__H_a_t_c",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tripType",
+            "description": "<p>Đơn vị quãng đường (luôn truyền lên KM)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "distance",
+            "description": "<p>Khoảng cách tính bằng m</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "SelectedCar",
+            "description": "<p>Mã dịch vụ (152, 156, 159 ...)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "totalPointDelivery",
+            "description": "<p>Tống số điểm giao hàng của đơn</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "cod",
+            "description": "<p>Tổng COD của đơn</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "promotion_code",
+            "description": "<p>Mã khuyến mãi</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "feePerReceiverPoint",
+            "description": "<p>Giá cước trên mỗi điểm giao</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "hoatoc",
+            "description": "<p>true hoặc false</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "giao",
+            "description": "<p>nhanh          true hoặc false</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example",
+          "content": "{\n    \"tripType\": Km\n       \"distance\": 4000\n       \"SelectedCar\": 152\n       \"totalPointDelivery\": 6\n       \"cod\": 3000000\n       \"promotion_code\": \n       \"shipType\": 1\n       \"feePerReceiverPoint\": 20000 \n       “hoatoc”: true\n       “giaonhanh”: false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>null</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Trả về thông tin giá cước</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "total_fare",
+            "description": "<p>Tổng cước phí chuyến đi (sau khuyến mãi)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "FareOfCommitsion",
+            "description": "<p>chiết khấu dựa trên tổng phí quãng đường + phí điểm giao</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "TripDistance",
+            "description": "<p>Tổng quãng đường (Km)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tripType",
+            "description": "<p>Km</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "additionalFareForCOD",
+            "description": "<p>Cước phí thu hộ COD</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "additionalFareForPointDelivery",
+            "description": "<p>Cước phí điểm giao cộng thêm (mỗi điểm giao thêm + 5.000đ)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "fareBaseDistance",
+            "description": "<p>Cước phí thuần dựa trên quãng đường</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "discount_fare",
+            "description": "<p>Giá trị của mã Khuyến Mại mà KH nhập</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "driver_income",
+            "description": "<p>Thu nhập lý thuyết của Tài xế (sau khi trừ chiết khấu)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "bonus_for_driver",
+            "description": "<p>Tiền thưởng cho Tài xế (hiện = 15%)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "raw_fare",
+            "description": "<p>Giá cước trước khi áp dụng mã Khuyến mãi (= total_fare + discount_fare)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": null,\n       \"data\": {\n           \"total_fare\": 65000,\n           \"FareOfCommision\": 5000,\n           \"TripDistance\": 4,\n           \"tripType\": \"Km\",\n           \"additionalFareForCOD\": 15000,\n           \"additionalFareForPointDelivery\": 25000,\n           \"fareBaseDistance\": 25000,\n           \"discount_fare\": 0,\n           \"driver_income\": 60000,\n           \"bonus_for_driver\": 0,\n           \"raw_fare\": 65000\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/confirmDriverPickupGoods.php",
+    "title": "26. Xác nhận bàn giao hàng",
+    "name": "25__X_c_nh_n_b_n_giao_h_ng",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "trip_id",
+            "description": "<p>Mã id đơn hàng(iTripId)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example",
+          "content": "{\n    \"trip_id\": 11575\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>null</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"Success\",\n       \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/confirmDriverPickupGoods.php",
+    "title": "25. Xác nhận bàn giao hàng",
+    "name": "25__X_c_nh_n_b_n_giao_h_ng",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "trip_id",
+            "description": "<p>Mã id đơn hàng(iTripId)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example",
+          "content": "{\n    \"trip_id\": 11575\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>null</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"Success\",\n       \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/quet_ton.php",
+    "title": "26. Quét mã tồn",
+    "name": "26__Qu_t_m__t_n",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "quet_ton",
+            "description": "<p>true = Đồng ý quét</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array",
+            "optional": false,
+            "field": "arr_trip_pointid",
+            "description": "<p>Danh sách các mã điểm giao muốn quét đơn tồn</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example",
+          "content": "{\n    \"quet_ton\": true\n    \"arr_trip_pointid\": 11575,11576,11577\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>null</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"Success\",\n       \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/customer/generate_assigned_trip.php",
+    "title": "27. Bắn đơn chỉ định",
+    "name": "27__B_n___n_ch____nh",
+    "group": "Customer",
+    "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token xác thực</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n    \"Authorization\": \"Bearer eyJjb21wYW55IjoiVmlldHRlbEdvLWFwaTt2PTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQLTE1NTg0MDQ2OTkiLCJpc3MiOiJTS2JNckxhZ3d5VVduSkxyZ3BQcTE1RXpPVnozdWFVamZQIiwiZXhwIjoxNTYzNTg4Njk5LCJ1c2VySWQiOiI2MDc1ODQifQ.xqUxOm_h3q4IYxfCgz3MFfHz55HPleWvBEv-_QUmsAo\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "requestId",
+            "description": "<p>Mã id request</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "driverPhone",
+            "description": "<p>Số điện thoại tài xế</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Param-Example",
+          "content": "{\n    \"quet_ton\": true\n    \"arr_trip_pointid\": 11575,11576,11577\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>200</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>null</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Example:",
+          "content": "{\n    \"status\": 200,\n       \"message\": \"OK\",\n       \"data\": {\n           \"iTripId\": 11805,\n           \"tripCode\": \"GNTE39W402VEOK\",\n           \"tEndLat\": \"20.9824402\",\n           \"tEndLong\": \"105.7879358\",\n           \"tDaddress\": \"Phố Ao Sen\",\n           \"PAppVersion\": \"1\",\n           \"eFareType\": \"Regular\",\n           \"APP_TYPE\": \"Delivery\"\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "api/index.js",
+    "groupTitle": "Customer"
+  },
+  {
     "type": "post",
     "url": "/api/v1/driver/signIn.php",
     "title": "01. Đăng nhập bằng số điện thoại",
@@ -8146,7 +8718,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/api/v1/customer/send_request_driver_waiting_ship.php",
-    "title": "1. Tạo đơn chờ giao hàng (EVTP)",
+    "title": "1. Tạo đơn chờ giao hàng (EVTP/Giao ngay/Giao ngay 4h)",
     "name": "1__T_o___n_ch__giao_h_ng",
     "group": "EVTP_waiting_bill",
     "description": "<p>Môi trường test: <a href=\"https://vtmove-apiv2.ddns.net\">https://vtmove-apiv2.ddns.net</a></p>",
@@ -8369,13 +8941,34 @@ define({ "api": [
             "optional": false,
             "field": "isVtp",
             "description": "<p>(= 1 nếu là đơn EVTP, = 0 nếu không phải là đơn EVTP)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "hoatoc",
+            "description": "<p>true hoặc false</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "giao",
+            "description": "<p>nhanh          true hoặc false</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "evtpUserId",
+            "description": "<p>Mã Id của user evtp (Userid lấy trong api: /connector/api/user/login)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Param-Example:",
-          "content": "{\n    \"distance\": 13326, \n       \"stateName\": \"Hà Nội\",\n       \"countryName\": \"Vietnam\",\n       \"selectedCarTypeID\": 152,\n       \"PickUpAddress\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n       \"PickUpLongitude\": 105.847476,\n       \"PickUpLatitude\": 21.007541,\n       \"DestAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n       \"DestLatitude\": 21.0873555,\n       \"DestLongitude\": 105.8094916,\n       \"listReceivePoints\": [\n           {\n               \"receiveAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"receiveUserName\": \"A Định\",\n               \"receiveUserPhone\": \"0389595186\",\n               \"note\": \"\",\n               \"latitude\": 21.0873555,\n               \"longitude\": 105.8094916,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\",\n               \"evtpInfo\": \"{\\\"userId\\\":123456,\\\"id_buugui\\\":\\\"417046264\\\",\\\"ma_phieugui\\\":\\\"1576322465821\\\",\\\"address\\\":{\\\"detail\\\":\\\"26, PH\\u01AF\\u1EDCNG \\u0110\\u1ED2NG NH\\u00C2N, QU\\u1EACN HAI B\\u00C0 TR\\u01AFNG, H\\u00E0 N\\u1ED9i\\\",\\\"districtId\\\":\\\"1\\\",\\\"precintId\\\":\\\"7522\\\",\\\"provinceCode\\\":\\\"HNI\\\"},\\\"recipient\\\":{\\\"name\\\":\\\"Nguy\\u1EC5n Minh An\\\",\\\"phone\\\":\\\"0905123456\\\"},\\\"note\\\":\\\"Test\\\",\\\"status\\\":\\\"6\\\",\\\"returnCode\\\":\\\"99\\\"}\"\n           },\n           {\n               \"receiveAddress\": \"66LK6A Nguyễn Văn Lộc, Hà Đông, Hà Nội\",\n               \"receiveUserName\": \"A An\",\n               \"receiveUserPhone\": \"0982405200\",\n               \"note\": \"hello my boy\",\n               \"latitude\": 20.9857383,\n               \"longitude\": 105.780868,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\",\n               \"evtpInfo\": \"{\\r\\n  \\\"userId\\\": 123456,\\r\\n  \\\"id_buugui\\\": \\\"417046264\\\",\\r\\n  \\\"ma_phieugui\\\": \\\"1576322465821\\\",\\r\\n  \\\"address\\\": {\\r\\n    \\\"detail\\\": \\\"26, PH\\u01AF\\u1EDCNG \\u0110\\u1ED2NG NH\\u00C2N, QU\\u1EACN HAI B\\u00C0 TR\\u01AFNG, H\\u00E0 N\\u1ED9i\\\"\\r\\n  },\\r\\n  \\\"recipient\\\": {\\r\\n    \\\"name\\\": \\\"Nguy\\u1EC5n Minh An\\\",\\r\\n    \\\"phone\\\": \\\"0905123456\\\"\\r\\n  }\\r\\n}\"\n           }\n       ],\n       \"payType\": 1,\n       \"requestId\": \"55692011564711053\",\n       \"isVtp\": 1,\n       \"shipType\": 1,\n       \"feePerReceiverPoint\": 12000\n}",
+          "content": "{\n    \"distance\": 13326, \n       \"stateName\": \"Hà Nội\",\n       \"countryName\": \"Vietnam\",\n       \"selectedCarTypeID\": 152,\n       \"PickUpAddress\": \"Số, Ngõ 16 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam\",\n       \"PickUpLongitude\": 105.847476,\n       \"PickUpLatitude\": 21.007541,\n       \"DestAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n       \"DestLatitude\": 21.0873555,\n       \"DestLongitude\": 105.8094916,\n       \"listReceivePoints\": [\n           {\n               \"receiveAddress\": \"Phố Phú Thượng, Phú Xá, Phú Thượng, Tây Hồ, Hà Nội, Vietnam\",\n               \"receiveUserName\": \"A Định\",\n               \"receiveUserPhone\": \"0389595186\",\n               \"note\": \"\",\n               \"latitude\": 21.0873555,\n               \"longitude\": 105.8094916,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\",\n               \"evtpInfo\": \"{\\\"userId\\\":123456,\\\"id_buugui\\\":\\\"417046264\\\",\\\"ma_phieugui\\\":\\\"1576322465821\\\",\\\"address\\\":{\\\"detail\\\":\\\"26, PH\\u01AF\\u1EDCNG \\u0110\\u1ED2NG NH\\u00C2N, QU\\u1EACN HAI B\\u00C0 TR\\u01AFNG, H\\u00E0 N\\u1ED9i\\\",\\\"districtId\\\":\\\"1\\\",\\\"precintId\\\":\\\"7522\\\",\\\"provinceCode\\\":\\\"HNI\\\"},\\\"recipient\\\":{\\\"name\\\":\\\"Nguy\\u1EC5n Minh An\\\",\\\"phone\\\":\\\"0905123456\\\"},\\\"note\\\":\\\"Test\\\",\\\"status\\\":\\\"6\\\",\\\"returnCode\\\":\\\"99\\\"}\"\n           },\n           {\n               \"receiveAddress\": \"66LK6A Nguyễn Văn Lộc, Hà Đông, Hà Nội\",\n               \"receiveUserName\": \"A An\",\n               \"receiveUserPhone\": \"0982405200\",\n               \"note\": \"hello my boy\",\n               \"latitude\": 20.9857383,\n               \"longitude\": 105.780868,\n               \"feeCod\": 0,\n               \"parcelName\": \"\",\n               \"parcelPrice\": \"\",\n               \"evtpInfo\": \"{\\r\\n  \\\"userId\\\": 123456,\\r\\n  \\\"id_buugui\\\": \\\"417046264\\\",\\r\\n  \\\"ma_phieugui\\\": \\\"1576322465821\\\",\\r\\n  \\\"address\\\": {\\r\\n    \\\"detail\\\": \\\"26, PH\\u01AF\\u1EDCNG \\u0110\\u1ED2NG NH\\u00C2N, QU\\u1EACN HAI B\\u00C0 TR\\u01AFNG, H\\u00E0 N\\u1ED9i\\\"\\r\\n  },\\r\\n  \\\"recipient\\\": {\\r\\n    \\\"name\\\": \\\"Nguy\\u1EC5n Minh An\\\",\\r\\n    \\\"phone\\\": \\\"0905123456\\\"\\r\\n  }\\r\\n}\"\n           }\n       ],\n       \"payType\": 1,\n       \"requestId\": \"55692011564711053\",\n       \"isVtp\": 1,\n       \"shipType\": 1,\n       \"feePerReceiverPoint\": 12000\n       \"hoatoc\":true,\n       \"giaonhanh\":false,\n       \"evtpUserId\": \"123456\"\n}",
           "type": "json"
         }
       ]
